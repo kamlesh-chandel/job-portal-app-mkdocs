@@ -1,0 +1,38 @@
+site_name: Job Portal App
+site_description: A report on my Job Portal App Project
+site_author: Kamlesh Chandel
+
+theme:
+  name: material
+  palette:
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+    # Light Mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+  features:
+    - navigation.sections      # Groups nested items in sidebar
+    - navigation.expand        # Automatically expands current section
+    - navigation.indexes       # Shows index page for each section
+    - search.highlight         # Highlights search results
+    - content.code.copy        # Adds "copy" button to code blocks
+
+  icon:
+    repo: fontawesome/brands/github
+
+# Navigation structure (Sidebar)
+nav:
+  - Home: index.md
+  - Business Use Cases: business_use_cases.md
+  - Functional Use Cases: functional_use_cases.md
+  - System Architecture: system_architecture.md
+  - User Roles: user_roles.md
+  - Workflow: workflow.md
+  - Future Scope: future_scope.md
