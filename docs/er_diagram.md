@@ -1,71 +1,92 @@
-# Entity Relationship (ER) Diagram
-
-This diagram represents the relationships between key entities in the Job Portal App database.
 
 ```mermaid
-erDiagram
 
-	USER {
+---
+config:
+  theme: neutral
+---
+
+erDiagram
+	users {
 		string _id  ""  
-		string fullname  ""  
+		string full_name  ""  
 		string email  ""  
 		string password  ""  
-		string role  "student | recruiter"  
+		objectId role_id  "ref: Role"  
 		string[] profile_skills  ""  
 		string profile_resume  "resume file URL"  
 		string profile_resumeOriginalName  ""  
 		string profile_profilePhoto  ""  
 		objectId profile_company  "ref: Company"  
-		string createdAt  ""  
+		Date created_at  ""  
+		Date deleted_at  ""  
+		Date updated_at  ""  
 	}
 
-	COMPANY {
+	roles {
+		string _id  ""  
+		string name  "student | recruiter"  
+		Date created_at  ""  
+		Date deleted_at  ""  
+		Date updated_at  ""  
+	}
+
+	companies {
 		string _id  ""  
 		string name  ""  
 		string website  ""  
 		string location  ""  
 		string logo  ""  
-		objectId userId  "ref: User"  
-		string createdAt  ""  
+		objectId user_id  "ref: User"  
+		Date created_at  ""  
+		Date deleted_at  ""  
+		Date updated_at  ""  
 	}
 
-	JOB {
+	jobs {
 		string _id  ""  
 		string title  ""  
 		string description  ""  
 		string[] requirements  ""  
 		number salary  ""  
-		number experienceLevel  ""  
+		number experience_level  ""  
 		string location  ""  
 		string jobType  ""  
 		number positions  ""  
 		objectId company  "ref: Company"  
 		string created_by  ""  
-		string createdAt  ""  
+		Date created_at  ""  
+		Date deleted_at  ""  
+		Date updated_at  ""  
 	}
 
-	APPLICATION {
+	applications {
 		string _id  ""  
 		objectId job  "ref: Job"  
 		objectId applicant  "ref: User"  
 		string status  "pending | Under Review | Interview Scheduled | hired | rejected"  
-		string createdAt  ""  
+		Date created_at  ""  
+		Date deleted_at  ""  
+		Date updated_at  ""  
 	}
 
-	BOOKMARK {
+	bookmarks {
 		string _id  ""  
 		objectId user  "ref: User"  
 		objectId job  "ref: Job"  
-		date savedAt  ""  
+		date saved_at  ""  
+		Date created_at  ""  
+		Date deleted_at  ""  
+		Date updated_at  ""  
 	}
 
-	%% Relationships
-	USER ||--o{ COMPANY : "owns (as recruiter)"
-	COMPANY ||--o{ JOB : "posts"
-	JOB ||--o{ APPLICATION : "receives"
-	USER ||--o{ APPLICATION : "applies for"
-	USER ||--o| COMPANY : "linked in profile.company"
-	USER ||--o{ BOOKMARK : "saves job"
-	JOB ||--o{ BOOKMARK : "is saved by"
+	roles||--o{users:"assigned to"
+	users||--o{companies:"owns (as recruiter)"
+	companies||--o{jobs:"posts"
+	jobs||--o{applications:"receives"
+	users||--o{applications:"applies for"
+	users||--o|companies:"linked in profile.company"
+	users||--o{bookmarks:"saves job"
+	jobs||--o{bookmarks:"is saved by"
 
 ```

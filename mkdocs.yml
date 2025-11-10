@@ -1,44 +1,40 @@
 site_name: Job Portal App
-site_description: A report on my Job Portal App Project
+site_description: A documentation site for the Job Portal App Project
 site_author: Kamlesh Chandel
+site_url: https://<your-vercel-or-github-pages-link>  # optional; replace later when deployed
+
+repo_url: https://github.com/<your-username>/<your-repo-name>  # optional GitHub link
+repo_name: GitHub
 
 theme:
   name: material
-  palette:
-    # Dark Mode
-    - scheme: slate
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
-
-    # Light Mode
-    - scheme: default
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
 
   features:
-    - navigation.sections      # Groups nested items in sidebar
-    - navigation.expand        # Automatically expands current section
-    - navigation.indexes       # Shows index page for each section
-    - search.highlight         # Highlights search results
-    - content.code.copy        # Adds "copy" button to code blocks
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.integrate
 
   icon:
     repo: fontawesome/brands/github
 
-# Navigation structure (Sidebar)
+# Navigation Sidebar
 nav:
   - Home: index.md
   - Business Use Cases: business_use_cases.md
   - Functional Use Cases: functional_use_cases.md
-  - System Architecture: system_architecture.md
+  - System Architecture (AWS): system_architecture.md
   - ER Diagram: er_diagram.md
   - User Roles: user_roles.md
   - Workflow: workflow.md
   - Future Scope: future_scope.md
-
-
+  - Data Flow: data_flow_diagram.md
+  - Authentication & Authorization: authentication_authorization.md
+  - Tech Stack: tech_stack.md
+# Markdown Enhancements
 markdown_extensions:
   - admonition
   - attr_list
@@ -60,5 +56,14 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+# Mermaid Integration
+plugins:
+  - search
+  - mermaid2
+
 extra_javascript:
   - https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
+
+# Site Deployment Directory (for Vercel/GitHub Pages)
+site_dir: site

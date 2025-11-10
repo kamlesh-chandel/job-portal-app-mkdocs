@@ -10,17 +10,41 @@ The Job Portal App uses the **MERN (MongoDB, Express, React, Node)** stack
 
 ```mermaid
 graph LR
-    subgraph "Frontend"
-    A[React + Redux + Shadcn + TailwindCSS]
+    %% Define directions
+    direction LR
+
+    %% Frontend Section
+    subgraph "Frontend (Client Side)"
+        A[React + Redux + Shadcn UI + TailwindCSS]
+        AV[Vercel Hosting]
     end
-    subgraph "Backend"
-    B[Node.js + Express + JWT]
+
+    %% Backend Section
+    subgraph "Backend (Server Side)"
+        B[Node.js + Express]
+        BR[Render Hosting]
+        J[JWT Authentication]
     end
-    subgraph "Database"
-    C[MongoDB]
+
+    %% Database Section
+    subgraph "Database Layer"
+        C[(MongoDB Atlas)]
     end
-    A -->|HTTPS/REST API| B
+
+    %% File Storage Section
+    subgraph "File Storage"
+        S3[AWS S3 - Resume/Profile Uploads]
+    end
+
+    %% Relationships
+    A -->|HTTPS / REST API Calls| B
+    A -->|Served from| AV
+    B -->|Deployed on| BR
+    B -->|Uses JWT for Auth| J
     B -->|Mongoose ODM| C
+    B -->|Uploads / Fetch Files| S3
+    A -->|Receives Auth Token| J
+
 ```
 
 ### Frontend
