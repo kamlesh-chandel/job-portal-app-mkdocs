@@ -14,20 +14,16 @@
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.21" name="generator"/>
 <title>ER Diagram - Job Portal App</title>
 <link href="../assets/stylesheets/main.2a3383ac.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
-<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<body dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#entity-relationship-er-diagram">
-          Skip to content
-        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -55,16 +51,6 @@
 </div>
 </div>
 </div>
-<form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
-</label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
-</label>
-</form>
 <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
@@ -159,7 +145,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../system_architecture/">
 <span class="md-ellipsis">
-    System Architecture
+    System Architecture (AWS)
     
   </span>
 </a>
@@ -197,6 +183,30 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data_flow_diagram/">
+<span class="md-ellipsis">
+    Data Flow
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../authentication_authorization/">
+<span class="md-ellipsis">
+    Authentication &amp; Authorization
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tech_stack/">
+<span class="md-ellipsis">
+    Tech Stack
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -204,72 +214,95 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="entity-relationship-er-diagram">Entity Relationship (ER) Diagram<a class="headerlink" href="#entity-relationship-er-diagram" title="Permanent link">¶</a></h1>
-<p>This diagram represents the relationships between key entities in the Job Portal App database.</p>
-<pre class="mermaid"><code>erDiagram
+<h1>ER Diagram</h1>
+<pre class="mermaid"><code>
+---
+config:
+  theme: neutral
+---
 
-    USER {
+erDiagram
+    users {
         string _id  ""  
-        string fullname  ""  
+        string full_name  ""  
         string email  ""  
         string password  ""  
-        string role  "student | recruiter"  
+        objectId role_id  "ref: Role"  
         string[] profile_skills  ""  
         string profile_resume  "resume file URL"  
         string profile_resumeOriginalName  ""  
         string profile_profilePhoto  ""  
         objectId profile_company  "ref: Company"  
-        string createdAt  ""  
+        Date created_at  ""  
+        Date deleted_at  ""  
+        Date updated_at  ""  
     }
 
-    COMPANY {
+    roles {
+        string _id  ""  
+        string name  "student | recruiter"  
+        Date created_at  ""  
+        Date deleted_at  ""  
+        Date updated_at  ""  
+    }
+
+    companies {
         string _id  ""  
         string name  ""  
         string website  ""  
         string location  ""  
         string logo  ""  
-        objectId userId  "ref: User"  
-        string createdAt  ""  
+        objectId user_id  "ref: User"  
+        Date created_at  ""  
+        Date deleted_at  ""  
+        Date updated_at  ""  
     }
 
-    JOB {
+    jobs {
         string _id  ""  
         string title  ""  
         string description  ""  
         string[] requirements  ""  
         number salary  ""  
-        number experienceLevel  ""  
+        number experience_level  ""  
         string location  ""  
         string jobType  ""  
         number positions  ""  
         objectId company  "ref: Company"  
         string created_by  ""  
-        string createdAt  ""  
+        Date created_at  ""  
+        Date deleted_at  ""  
+        Date updated_at  ""  
     }
 
-    APPLICATION {
+    applications {
         string _id  ""  
         objectId job  "ref: Job"  
         objectId applicant  "ref: User"  
         string status  "pending | Under Review | Interview Scheduled | hired | rejected"  
-        string createdAt  ""  
+        Date created_at  ""  
+        Date deleted_at  ""  
+        Date updated_at  ""  
     }
 
-    BOOKMARK {
+    bookmarks {
         string _id  ""  
         objectId user  "ref: User"  
         objectId job  "ref: Job"  
-        date savedAt  ""  
+        date saved_at  ""  
+        Date created_at  ""  
+        Date deleted_at  ""  
+        Date updated_at  ""  
     }
 
-    %% Relationships
-    USER ||--o{ COMPANY : "owns (as recruiter)"
-    COMPANY ||--o{ JOB : "posts"
-    JOB ||--o{ APPLICATION : "receives"
-    USER ||--o{ APPLICATION : "applies for"
-    USER ||--o| COMPANY : "linked in profile.company"
-    USER ||--o{ BOOKMARK : "saves job"
-    JOB ||--o{ BOOKMARK : "is saved by"
+    roles||--o{users:"assigned to"
+    users||--o{companies:"owns (as recruiter)"
+    companies||--o{jobs:"posts"
+    jobs||--o{applications:"receives"
+    users||--o{applications:"applies for"
+    users||--o|companies:"linked in profile.company"
+    users||--o{bookmarks:"saves job"
+    jobs||--o{bookmarks:"is saved by"
 </code></pre>
 </article>
 </div>
