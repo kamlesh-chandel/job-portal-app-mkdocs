@@ -4,22 +4,31 @@ This diagram represents the relationships between key entities in the Job Portal
 
 ```mermaid
 erDiagram
-	
-    USER {
-        string _id
-        string fullname
-        string email
-        string password
-        string role "student | recruiter"
 
-        %% Profile Section (Nested Fields)
-        string[] profile_skills
-        string profile_resume "resume file URL"
-        string profile_resumeOriginalName
-        string profile_profilePhoto
+	USER {
+		string _id  ""  
+		string fullname  ""  
+		string email  ""  
+		string password  ""  
+		string role  "student | recruiter"  
+		string[] profile_skills  ""  
+		string profile_resume  "resume file URL"  
+		string profile_resumeOriginalName  ""  
+		string profile_profilePhoto  ""  
+		objectId profile_company  "ref: Company"  
+		string createdAt  ""  
+	}
 
-        string createdAt
-    }
+	COMPANY {
+		string _id  ""  
+		string name  ""  
+		string website  ""  
+		string location  ""  
+		string logo  ""  
+		objectId userId  "ref: User"  
+		string createdAt  ""  
+	}
+
 	JOB {
 		string _id  ""  
 		string title  ""  
@@ -30,21 +39,33 @@ erDiagram
 		string location  ""  
 		string jobType  ""  
 		number positions  ""  
-		string company  ""  
-		string created_by  "User._id"  
-		string[] applications  "Array of Application._id"  
+		objectId company  "ref: Company"  
+		string created_by  ""  
 		string createdAt  ""  
 	}
+
 	APPLICATION {
 		string _id  ""  
-		string job  "Job._id"  
-		string applicant  "User._id"  
-		string status  "pending | under_review | shortlisted | accepted | rejected"  
+		objectId job  "ref: Job"  
+		objectId applicant  "ref: User"  
+		string status  "pending | Under Review | Interview Scheduled | hired | rejected"  
 		string createdAt  ""  
 	}
-	USER||--o{JOB:"creates"
-	USER||--o{APPLICATION:"applies"
-	JOB||--o{APPLICATION:"receives"
 
+	BOOKMARK {
+		string _id  ""  
+		objectId user  "ref: User"  
+		objectId job  "ref: Job"  
+		date savedAt  ""  
+	}
+
+	%% Relationships
+	USER ||--o{ COMPANY : "owns (as recruiter)"
+	COMPANY ||--o{ JOB : "posts"
+	JOB ||--o{ APPLICATION : "receives"
+	USER ||--o{ APPLICATION : "applies for"
+	USER ||--o| COMPANY : "linked in profile.company"
+	USER ||--o{ BOOKMARK : "saves job"
+	JOB ||--o{ BOOKMARK : "is saved by"
 
 ```
