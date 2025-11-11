@@ -1,3 +1,6 @@
+# Entity Relationship (ER) Diagram
+
+This diagram shows how different collections in the **Job Portal App** are related to each other.  
 
 ```mermaid
 erDiagram
@@ -5,10 +8,14 @@ erDiagram
 		string _id  ""  
 		string name  ""  
 		string email  ""  
-		string password  ""  
+		string password  "" 
+		%% skills, resume_url, profile_url will be in profile fields%% 
 		string[] skills  ""  
 		string resume_url  "resume file URL"  
-		string profile_url  "profile photo file URL"   
+		string profile_url "profile photo file URL"
+		%% linkedin_url, github_url will be in social_links fields%% 
+		string linkedin_url ""
+		string github_url ""   
 		Date created_at  ""  
 		Date deleted_at  ""  
 		Date updated_at  ""  
@@ -35,7 +42,11 @@ erDiagram
 		string _id  ""  
 		string name  ""  
 		string website  ""  
-		string location  ""  
+	    %% street, city, state, country will be in address fields%% 		
+		string street ""
+		string city ""
+		string state ""
+		string country ""  
 		string logo_url  ""  
 		objectId user_id  "ref: users"  
 		Date created_at  ""  

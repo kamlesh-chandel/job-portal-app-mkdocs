@@ -1,7 +1,5 @@
 # Future Scope
 
----
-
 The Job Portal App can be expanded with more advanced and industry-level features to make it more intelligent, scalable, and user-friendly.
 
 ### Possible Future Enhancements

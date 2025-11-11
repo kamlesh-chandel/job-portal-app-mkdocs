@@ -1,6 +1,4 @@
 # Workflow
----
-
 This section explains how the system works for both **Students** and **Recruiters**, showing the main flow of actions step-by-step.
 
 ---

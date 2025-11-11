@@ -1,3 +1,5 @@
+#Authentication and Authorization
+This diagram shows how users (students and recruiters) log in, register, and access protected APIs in the Job Portal App.
 ```mermaid
 flowchart TD
     %% Define styles

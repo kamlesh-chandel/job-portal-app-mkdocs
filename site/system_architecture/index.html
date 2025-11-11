@@ -342,18 +342,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tech-stack-overview" class="md-nav__link">
+  <a href="#explanation" class="md-nav__link">
     <span class="md-ellipsis">
-      Tech Stack Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system-architecture-diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      System Architecture Diagram
+      🧩 Explanation
     </span>
   </a>
   
@@ -541,11 +532,35 @@
 
 
 <h1 id="system-architecture">System Architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h1>
+<p>This page shows the <strong>system architecture</strong> of the Job Portal App.  </p>
+<p>The architecture mainly focuses on providing a scalable and secure environment using <strong>AWS</strong> and <strong>cloud-based services</strong>.</p>
 <hr />
-<h2 id="tech-stack-overview">Tech Stack Overview<a class="headerlink" href="#tech-stack-overview" title="Permanent link">&para;</a></h2>
-<p>The Job Portal App uses the <strong>MERN (MongoDB, Express, React, Node)</strong> stack</p>
-<h2 id="system-architecture-diagram">System Architecture Diagram<a class="headerlink" href="#system-architecture-diagram" title="Permanent link">&para;</a></h2>
 <p><img alt="Architecture Diagram" src="../assets/system_architecture.png" /></p>
+<hr />
+<h3 id="explanation">🧩 Explanation<a class="headerlink" href="#explanation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Frontend (React + Vite):</strong><br />
+  The user interface is built using React website.</p>
+</li>
+<li>
+<p><strong>Backend (Node.js + Express):</strong><br />
+  The backend is deployed on an <strong>AWS EC2 instance</strong> inside a <strong>VPC</strong> (Virtual Private Cloud).  </p>
+</li>
+<li>
+<p><strong>Database (MongoDB Atlas):</strong><br />
+  Stores all user, job, company, bookmarks and application data securely in the cloud.</p>
+</li>
+<li>
+<p><strong>File Storage (AWS S3):</strong><br />
+  Used to store uploaded files like resumes and profile photos.  </p>
+</li>
+<li>
+<p><strong>Security:</strong><br />
+  Authentication and Authorization are implemented using <strong>JWT tokens</strong>, ensuring only verified users can access protected routes.</p>
+</li>
+</ul>
+<hr />
 
 
 

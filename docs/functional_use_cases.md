@@ -1,3 +1,7 @@
+# Functional Use Cases
+
+This section explains how different users — **Recruiters** and **Students** — interact with the system and what actions they can perform.  
+
 | Actor         | Functionality                   | Description                                                                 | Expected Outcome                          |
 | ------------- | ------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------- |
 | **Recruiter** | **Login / Signup**              | Secure access with authentication                                           | Recruiter can log in or create an account |

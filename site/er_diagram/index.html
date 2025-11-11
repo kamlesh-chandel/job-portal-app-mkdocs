@@ -24,6 +24,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#entity-relationship-er-diagram">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -214,16 +217,21 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>ER Diagram</h1>
+<h1 id="entity-relationship-er-diagram">Entity Relationship (ER) Diagram<a class="headerlink" href="#entity-relationship-er-diagram" title="Permanent link">¶</a></h1>
+<p>This diagram shows how different collections in the <strong>Job Portal App</strong> are related to each other.  </p>
 <pre class="mermaid"><code>erDiagram
     users {
         string _id  ""  
         string name  ""  
         string email  ""  
-        string password  ""  
+        string password  "" 
+        %% skills, resume_url, profile_url will be in profile fields%% 
         string[] skills  ""  
         string resume_url  "resume file URL"  
-        string profile_url  "profile photo file URL"   
+        string profile_url "profile photo file URL"
+        %% linkedin_url, github_url will be in social_links fields%% 
+        string linkedin_url ""
+        string github_url ""   
         Date created_at  ""  
         Date deleted_at  ""  
         Date updated_at  ""  
@@ -250,7 +258,11 @@
         string _id  ""  
         string name  ""  
         string website  ""  
-        string location  ""  
+        %% street, city, state, country will be in address fields%%         
+        string street ""
+        string city ""
+        string state ""
+        string country ""  
         string logo_url  ""  
         objectId user_id  "ref: users"  
         Date created_at  ""  

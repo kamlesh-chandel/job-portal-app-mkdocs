@@ -1,7 +1,4 @@
 # User Roles
-
----
-
 In this application, there are two main roles: **Student** and **Recruiter**.  
 Each role has specific features and permissions that define what they can do inside the system.
 
