@@ -200,7 +200,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tech_stack/">
+<a class="md-nav__link" href="../tech_stack.md">
 <span class="md-ellipsis">
     Tech Stack
     
@@ -221,59 +221,59 @@ config:
 ---
 
 flowchart TD
-    %% external users
-    Student["Student"]
-    Recruiter["Recruiter"]
+    %% Users
+    A[Student] 
+    B[Recruiter]
 
-    %% main processes
-    Auth["Authentication (POST /auth/login)"]
-    CompanyProcess["Company Management (POST /company, PUT /company)"]
-    JobProcess["Job Management (POST /jobs, GET /jobs, GET /job/:id)"]
-    ApplicationProcess["Application Management (POST /applications, GET /student/applied)"]
-    FileUpload["File Upload to AWS S3 (POST /upload)"]
-    BookmarkProcess["Saved Jobs (GET /saved-jobs)"]
+    %% Main Features
+    subgraph "1. Login &amp; Signup"
+        Login[Login / Register]
+    end
 
-    %% data stores
-    DB["MongoDB Atlas"]
-    S3["AWS S3 (for Resume &amp; Profile Photos)"]
+    subgraph "2. Company &amp; Jobs"
+        Company[Create Company]
+        Jobs[Post / Edit / Delete Jobs]
+    end
 
-    %% authentication
-    Student --&gt;|Login / Register| Auth
-    Recruiter --&gt;|Login / Register| Auth
-    Auth --&gt;|Check Credentials &amp; JWT| DB
-    Auth --&gt;|Return JWT Token| Student
-    Auth --&gt;|Return JWT Token| Recruiter
+    subgraph "3. Student Actions"
+        Browse[Browse Jobs]
+        Apply[Apply to Jobs]
+        Upload[Upload Resume &amp; Photo]
+        Save[Save Jobs]
+    end
 
-    %% company management
-    Recruiter --&gt;|Add / Update Company Info| CompanyProcess
-    CompanyProcess --&gt;|Save Company Data| DB
+    subgraph "4. Storage"
+        DB[(MongoDB&lt;br&gt;Users, Company, Jobs, Applications)]
+        S3[(AWS S3&lt;br&gt;Resumes &amp; Photos)]
+    end
 
-    %% job management
-    Recruiter --&gt;|Create / Edit / Delete Jobs| JobProcess
-    JobProcess --&gt;|Store Job Details| DB
-    Student --&gt;|View Jobs / Job Details| JobProcess
-    JobProcess --&gt;|Fetch Job Data| DB
+    %% Simple Flows
+    A --&gt; Login
+    B --&gt; Login
+    Login --&gt; DB
 
-    %% applications
-    Student --&gt;|Apply for Job| ApplicationProcess
-    ApplicationProcess --&gt;|Save Application Data| DB
-    Recruiter --&gt;|View Applicants| ApplicationProcess
-    ApplicationProcess --&gt;|Fetch Application Data| DB
+    B --&gt; Company --&gt; DB
+    B --&gt; Jobs --&gt; DB
 
-    %% file upload
-    Student --&gt;|Upload Resume / Photo| FileUpload
-    FileUpload --&gt;|Send File to S3| S3
-    S3 --&gt;|Return File URL| FileUpload
-    FileUpload --&gt;|Save URL in User Profile| DB
+    A --&gt; Browse --&gt; DB
+    A --&gt; Apply --&gt; DB
+    A --&gt; Upload --&gt; S3 --&gt; DB
+    A --&gt; Save --&gt; DB
 
-    %% bookmarks
-    Student --&gt;|Save / View Jobs| BookmarkProcess
-    BookmarkProcess --&gt;|Store / Fetch Bookmarks| DB
+    B --&gt; ViewApps[View Applicants] --&gt; DB
 
-    %% returning data to ui
-    DB --&gt;|Return Jobs, Users, Applications| JobProcess
-    JobProcess --&gt;|Send Data| Student
-    JobProcess --&gt;|Send Data| Recruiter</code></pre>
+    DB --&gt; Jobs --&gt; A
+    DB --&gt; Jobs --&gt; B
+    DB --&gt; ViewApps --&gt; B
+
+    %% Beautiful Styling
+    classDef user fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,color:#000;
+    classDef feature fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
+    classDef storage fill:#e8f5e9,stroke:#388e3c,stroke-width:3px;
+
+    class A,B user
+    class Login,Company,Jobs,Browse,Apply,Upload,Save,ViewApps feature
+    class DB,S3 storage</code></pre>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -300,6 +300,5 @@ flowchart TD
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "search.highlight", "content.code.copy", "content.tabs.link", "toc.integrate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script>
 </body>
 </html>
