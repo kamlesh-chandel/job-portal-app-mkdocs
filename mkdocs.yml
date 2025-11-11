@@ -62,8 +62,6 @@ plugins:
   - search
   - mermaid2
 
-extra_javascript:
-  - https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
 
 # Site Deployment Directory (for Vercel/GitHub Pages)
 site_dir: site

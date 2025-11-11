@@ -5,57 +5,57 @@ config:
 ---
 
 flowchart TD
-    %% external users
-    Student["Student"]
-    Recruiter["Recruiter"]
+    %% Users
+    A[Student] 
+    B[Recruiter]
 
-    %% main processes
-    Auth["Authentication (POST /auth/login)"]
-    CompanyProcess["Company Management (POST /company, PUT /company)"]
-    JobProcess["Job Management (POST /jobs, GET /jobs, GET /job/:id)"]
-    ApplicationProcess["Application Management (POST /applications, GET /student/applied)"]
-    FileUpload["File Upload to AWS S3 (POST /upload)"]
-    BookmarkProcess["Saved Jobs (GET /saved-jobs)"]
+    %% Main Features
+    subgraph "1. Login & Signup"
+        Login[Login / Register]
+    end
 
-    %% data stores
-    DB["MongoDB Atlas"]
-    S3["AWS S3 (for Resume & Profile Photos)"]
+    subgraph "2. Company & Jobs"
+        Company[Create Company]
+        Jobs[Post / Edit / Delete Jobs]
+    end
 
-    %% authentication
-    Student -->|Login / Register| Auth
-    Recruiter -->|Login / Register| Auth
-    Auth -->|Check Credentials & JWT| DB
-    Auth -->|Return JWT Token| Student
-    Auth -->|Return JWT Token| Recruiter
+    subgraph "3. Student Actions"
+        Browse[Browse Jobs]
+        Apply[Apply to Jobs]
+        Upload[Upload Resume & Photo]
+        Save[Save Jobs]
+    end
 
-    %% company management
-    Recruiter -->|Add / Update Company Info| CompanyProcess
-    CompanyProcess -->|Save Company Data| DB
+    subgraph "4. Storage"
+        DB[(MongoDB<br>Users, Company, Jobs, Applications)]
+        S3[(AWS S3<br>Resumes & Photos)]
+    end
 
-    %% job management
-    Recruiter -->|Create / Edit / Delete Jobs| JobProcess
-    JobProcess -->|Store Job Details| DB
-    Student -->|View Jobs / Job Details| JobProcess
-    JobProcess -->|Fetch Job Data| DB
+    %% Simple Flows
+    A --> Login
+    B --> Login
+    Login --> DB
 
-    %% applications
-    Student -->|Apply for Job| ApplicationProcess
-    ApplicationProcess -->|Save Application Data| DB
-    Recruiter -->|View Applicants| ApplicationProcess
-    ApplicationProcess -->|Fetch Application Data| DB
+    B --> Company --> DB
+    B --> Jobs --> DB
 
-    %% file upload
-    Student -->|Upload Resume / Photo| FileUpload
-    FileUpload -->|Send File to S3| S3
-    S3 -->|Return File URL| FileUpload
-    FileUpload -->|Save URL in User Profile| DB
+    A --> Browse --> DB
+    A --> Apply --> DB
+    A --> Upload --> S3 --> DB
+    A --> Save --> DB
 
-    %% bookmarks
-    Student -->|Save / View Jobs| BookmarkProcess
-    BookmarkProcess -->|Store / Fetch Bookmarks| DB
+    B --> ViewApps[View Applicants] --> DB
 
-    %% returning data to ui
-    DB -->|Return Jobs, Users, Applications| JobProcess
-    JobProcess -->|Send Data| Student
-    JobProcess -->|Send Data| Recruiter
+    DB --> Jobs --> A
+    DB --> Jobs --> B
+    DB --> ViewApps --> B
+
+    %% Beautiful Styling
+    classDef user fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,color:#000;
+    classDef feature fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
+    classDef storage fill:#e8f5e9,stroke:#388e3c,stroke-width:3px;
+    
+    class A,B user
+    class Login,Company,Jobs,Browse,Apply,Upload,Save,ViewApps feature
+    class DB,S3 storage
 ```

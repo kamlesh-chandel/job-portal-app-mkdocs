@@ -6,45 +6,40 @@
 
 The Job Portal App uses the **MERN (MongoDB, Express, React, Node)** stack
 
-## High Level Diagram
+## System Architecture Diagram
 
 ```mermaid
 graph LR
-    %% Define directions
-    direction LR
-
-    %% Frontend Section
-    subgraph "Frontend (Client Side)"
-        A[React + Redux + Shadcn UI + TailwindCSS]
-        AV[Vercel Hosting]
+    %% Frontend
+    subgraph "Frontend"
+        A[React App]
+        S3FE[Amazon S3 + CloudFront - Static Website Hosting]
     end
 
-    %% Backend Section
-    subgraph "Backend (Server Side)"
-        B[Node.js + Express]
-        BR[Render Hosting]
+    %% Backend
+    subgraph "Backend"
+        B[Node.js + Express API]
+        EB[Amazon Elastic Beanstalk - EC2]
         J[JWT Authentication]
     end
 
-    %% Database Section
-    subgraph "Database Layer"
-        C[(MongoDB Atlas)]
+    %% Database
+    subgraph "Database"
+        C[MongoDB Atlas]
     end
 
-    %% File Storage Section
-    subgraph "File Storage"
-        S3[AWS S3 - Resume/Profile Uploads]
+    %% File Storage
+    subgraph "Storage"
+        S3[AWS S3 - File Uploads]
     end
 
     %% Relationships
-    A -->|HTTPS / REST API Calls| B
-    A -->|Served from| AV
-    B -->|Deployed on| BR
+    A -->|HTTPS Requests| B
+    A -->|Served via| S3FE
+    B -->|Deployed on| EB
     B -->|Uses JWT for Auth| J
-    B -->|Mongoose ODM| C
-    B -->|Uploads / Fetch Files| S3
-    A -->|Receives Auth Token| J
-
+    B -->|Reads/Writes Data| C
+    B -->|Uploads/Downloads Files| S3
 ```
 
 ### Frontend
@@ -60,6 +55,9 @@ graph LR
 
 ### Database
 - **MongoDB:** Stores users, jobs, and applications. Each recruiter’s jobs and corresponding applications are linked via object references.
+
+### File Storage
+- **AWS S3:** Stores Resume file and photos like company logo, user profile photo.
 
 ---
 

@@ -1,11 +1,5 @@
 
 ```mermaid
-
----
-config:
-  theme: neutral
----
-
 erDiagram
 	users {
 		string _id  ""  
