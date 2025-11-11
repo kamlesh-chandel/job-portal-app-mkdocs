@@ -12,8 +12,10 @@
         <meta name="author" content="Kamlesh Chandel">
       
       
-        <link rel="canonical" href="https://<your-vercel-or-github-pages-link>/introduction/">
+        <link rel="canonical" href="https://<your-vercel-or-github-pages-link>/tech_stack/">
       
+      
+        <link rel="prev" href="../authentication_authorization/">
       
       
       
@@ -22,7 +24,7 @@
     
     
       
-        <title>Introduction - Job Portal App</title>
+        <title>Tech Stack - Job Portal App</title>
       
     
     
@@ -64,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#technology-stack" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction
+              Tech Stack
             
           </span>
         </div>
@@ -439,10 +441,32 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../tech_stack/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Tech Stack
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -453,6 +477,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frontend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Storage
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -476,25 +556,31 @@
   
 
 
-<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
-<p>The <strong>Job Portal App</strong> is a modern web-based application that connects <strong>students</strong> who are actively seeking jobs or internships with <strong>recruiters</strong> offering employment opportunities.<br />
-It aims to make recruitment more organized, faster, and transparent for both sides.</p>
+<h1 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h1>
+<p>This page outlines the chosen technology stack for the <strong>Job Portal Application</strong>, along with the stable versions.</p>
 <hr />
-<h2 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">&para;</a></h2>
-<p>The traditional recruitment process often involves lengthy communication, multiple applications, and unclear status tracking.<br />
-Students face difficulty knowing whether they are selected or rejected, and recruiters find it challenging to manage a large number of applicants manually.  </p>
-<p>This project solves these issues by providing a <strong>centralized platform</strong> where:
-- Students can easily browse and apply for jobs.
-- Recruiters can efficiently manage job postings and applications.
-- Both parties can communicate through a single, structured system.</p>
+<h2 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>React + Vite (v19.2.0 / v7.2):</strong> Provides fast UI rendering and hot module replacement for rapid development.  </li>
+<li><strong>Redux (v5.0.1):</strong> Manages global state across different components.  </li>
+<li><strong>Tailwind CSS (v4.1.13):</strong> Used for responsive and modern design.  </li>
+<li><strong>Shadcn/ui (v0.9.5):</strong> Customizable component library used for accessible UI components (like modals, dropdowns, buttons, and inputs).  </li>
+</ul>
+<h2 id="backend">Backend<a class="headerlink" href="#backend" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Node.js (v24.x):</strong> Provides a runtime environment for server-side logic.  </li>
+<li><strong>Express.js (v5.1.0):</strong> Handles API routes and middleware logic.  </li>
+<li><strong>JWT Authentication (v9.0.2):</strong> Ensures secure login and role-based route protection.  </li>
+</ul>
+<h2 id="database">Database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>MongoDB (8.0.):</strong> Stores users, jobs, and applications. Each recruiter’s jobs and corresponding applications are linked via object references.  </li>
+</ul>
+<h2 id="file-storage">File Storage<a class="headerlink" href="#file-storage" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>AWS S3 (v33.902.0 AWS SDK):</strong> Stores resume files and photos like company logo and user profile photo.</li>
+</ul>
 <hr />
-<h2 id="how-it-simplifies-the-process">How It Simplifies the Process<a class="headerlink" href="#how-it-simplifies-the-process" title="Permanent link">&para;</a></h2>
-<p>The Job Portal App simplifies the entire hiring workflow by offering:
-- <strong>Centralized job listings:</strong> All available jobs are displayed in one place.
-- <strong>Role-based access:</strong> Recruiters and students have separate dashboards and permissions.
-- <strong>Application tracking:</strong> Students can see their job application status (Pending, Under Review, Interview Scheduled, Hired or Rejected) in real-time.
-- <strong>Data security:</strong> Authentication ensures that user data and applications remain secure.</p>
-<p>This system makes job management convenient and provides a professional, digital experience for both recruiters and applicants.</p>
 
 
 
