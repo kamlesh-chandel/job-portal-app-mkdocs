@@ -24,6 +24,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#authentication-and-authorization">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -214,7 +217,8 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>Authentication &amp; Authorization</h1>
+<h1 id="authentication-and-authorization">Authentication and Authorization<a class="headerlink" href="#authentication-and-authorization" title="Permanent link">¶</a></h1>
+<p>This diagram shows how users (students and recruiters) log in, register, and access protected APIs in the Job Portal App.
 <pre class="mermaid"><code>flowchart TD
     %% Define styles
     classDef api fill:#E8F6FF,stroke:#0099FF,stroke-width:1px,color:#000;
@@ -250,7 +254,7 @@
     O --&gt; Q[roleMiddleware checks user role]:::middleware
     Q --&gt; |Student| R[Allow actions: View jobs, Save jobs, Apply Job,  Update profile, View applied jobs with status]:::api
     Q --&gt; |Recruiter| S[Allow actions:  Register Company, Post Job, View Applicants, Change Applicants status]:::api
-    Q --&gt; |Unauthorized Role| T[Return 403 Forbidden]:::api</code></pre>
+    Q --&gt; |Unauthorized Role| T[Return 403 Forbidden]:::api</code></pre></p>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>

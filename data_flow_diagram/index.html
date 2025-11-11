@@ -24,6 +24,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#data-flow-diagrams">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -184,12 +187,48 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Data Flow
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Data Flow
     
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#level-0-dfd">
+<span class="md-ellipsis">
+      Level 0 DFD
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#level-1-dfd">
+<span class="md-ellipsis">
+      Level 1 DFD
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#level-2-dfd">
+<span class="md-ellipsis">
+      Level 2 DFD
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../authentication_authorization/">
@@ -214,40 +253,77 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>Data Flow</h1>
+<h1 id="data-flow-diagrams">Data Flow Diagrams<a class="headerlink" href="#data-flow-diagrams" title="Permanent link">¶</a></h1>
+<p>This section shows how data moves through the <strong>Job Portal App</strong> at different levels of detail — from a high-level system view to a detailed breakdown of key processes.</p>
+<hr/>
+<h3 id="level-0-dfd">Level 0 DFD<a class="headerlink" href="#level-0-dfd" title="Permanent link">¶</a></h3>
+<p>The Level 0 diagram represents the overall system as a single process interacting with — <strong>Students</strong>, <strong>Recruiters</strong>, <strong>AWS S3</strong>, <strong>MongoDB Atlas</strong>.<br/>
 <pre class="mermaid"><code>---
 config:
   theme: neutral
 ---
 
 flowchart TD
+    %% External Users
+    Student[Student]
+    Recruiter[Recruiter]
+
+    %% System
+    System[Job Portal Application]
+
+    %% Data Stores (shown as external connections)
+    DB[(MongoDB Atlas)]
+    S3[(AWS S3)]
+
+    %% Flows
+    Student --&gt;|Register / Login / Browse / Apply / Upload Resume / Save Jobs| System
+    Recruiter --&gt;|Register / Login / register company / Post Jobs / View Applicants / change application status | System
+
+    System --&gt;|Return Data, Status, Responses| Student
+    System --&gt;|Return Applicant Data, Job Status| Recruiter
+
+    System --&gt;|Store &amp; Fetch Data| DB
+    System --&gt;|Upload &amp; Retrieve Files| S3
+
+    %% Styling
+    classDef user fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,color:#000;
+    classDef system fill:#fff3e0,stroke:#ef6c00,stroke-width:3px,color:#000;
+    classDef storage fill:#e8f5e9,stroke:#388e3c,stroke-width:3px,color:#000;
+
+    class Student,Recruiter user
+    class System system
+    class DB,S3 storage
+</code></pre></p>
+<h3 id="level-1-dfd">Level 1 DFD<a class="headerlink" href="#level-1-dfd" title="Permanent link">¶</a></h3>
+<p>This diagram breaks the system into key functional modules like Authentication, Company &amp; Jobs, Student Actions, and Storage.
+<pre class="mermaid"><code>flowchart TD
     %% Users
-    A[Student] 
+    A[Student]
     B[Recruiter]
 
-    %% Main Features
-    subgraph "1. Login &amp; Signup"
+    %% Main Processes
+    subgraph "Authentication"
         Login[Login / Register]
     end
 
-    subgraph "2. Company &amp; Jobs"
-        Company[Create Company]
+    subgraph "Company &amp; Jobs"
+        Company[Create / Manage Company]
         Jobs[Post / Edit / Delete Jobs]
     end
 
-    subgraph "3. Student Actions"
+    subgraph "Student Actions"
         Browse[Browse Jobs]
-        Apply[Apply to Jobs]
-        Upload[Upload Resume &amp; Photo]
+        Apply[Apply for Jobs]
+        Upload[Upload Resume / Photo]
         Save[Save Jobs]
     end
 
-    subgraph "4. Storage"
-        DB[(MongoDB&lt;br&gt;Users, Company, Jobs, Applications)]
+    subgraph "Storage"
+        DB[(MongoDB Atlas&lt;br&gt;Users, Roles, Companies, Jobs, Submissions, Bookmarks )]
         S3[(AWS S3&lt;br&gt;Resumes &amp; Photos)]
     end
 
-    %% Simple Flows
+    %% Flows
     A --&gt; Login
     B --&gt; Login
     Login --&gt; DB
@@ -266,14 +342,86 @@ flowchart TD
     DB --&gt; Jobs --&gt; B
     DB --&gt; ViewApps --&gt; B
 
-    %% Beautiful Styling
+    %% Styles
     classDef user fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,color:#000;
-    classDef feature fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
+    classDef process fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
     classDef storage fill:#e8f5e9,stroke:#388e3c,stroke-width:3px;
 
     class A,B user
-    class Login,Company,Jobs,Browse,Apply,Upload,Save,ViewApps feature
-    class DB,S3 storage</code></pre>
+    class Login,Company,Jobs,Browse,Apply,Upload,Save,ViewApps process
+    class DB,S3 storage</code></pre></p>
+<h3 id="level-2-dfd">Level 2 DFD<a class="headerlink" href="#level-2-dfd" title="Permanent link">¶</a></h3>
+<p>This level provides a detailed view of the internal operations inside each module.
+<pre class="mermaid"><code>flowchart TD
+    %% Users
+    Student[Student]
+    Recruiter[Recruiter]
+
+    %% Auth Process Breakdown
+    subgraph "Authentication Module"
+        Register[Register New User]
+        Login[Login User]
+        Validate[Validate Credentials]
+        StoreUser[Store User Info in DB]
+    end
+
+    %% Company &amp; Job Process Breakdown
+    subgraph "Company &amp; Job Module"
+        CreateCompany[Register Company]
+        FetchCompanies[Fetch Companies]
+        FetchJobs[Fetch Jobs]
+        PostJob[Post Job]
+        EditJob[Edit Job]
+        DeleteJob[Delete Job]
+        FetchJobApplicants[Fetch Job Applicants]
+        UpdateApplicationStatus[Update Application Status]
+    end
+
+    %% Student Application Module
+    subgraph "Application Module"
+        BrowseJobs[Browse All Jobs]
+        ApplyJob[Apply for Job]
+        UploadFile[Upload Resume to S3]
+        SaveJob[Save Job for Later]
+        TrackStatus[View Application Status]
+    end
+
+    %% Data Stores
+    DB[(MongoDB Atlas)]
+    S3[(AWS S3)]
+
+    %% Flows
+    Student --&gt; Register --&gt; StoreUser
+    Student --&gt; Login --&gt; Validate --&gt; DB
+    Recruiter --&gt; Login --&gt; Validate --&gt; DB
+
+    Recruiter --&gt; CreateCompany --&gt; DB
+    Recruiter --&gt; PostJob --&gt; DB
+    Recruiter --&gt; EditJob --&gt; DB
+    Recruiter --&gt; DeleteJob --&gt; DB
+    Recruiter --&gt; FetchJobs --&gt; DB --&gt; FetchJobs
+    Recruiter --&gt; FetchJobApplicants --&gt; DB --&gt; FetchJobApplicants
+    Recruiter --&gt; FetchCompanies --&gt; DB --&gt; FetchCompanies
+    Recruiter --&gt; UpdateApplicationStatus --&gt; DB
+
+    Student --&gt; BrowseJobs --&gt; DB
+    Student --&gt; ApplyJob --&gt; DB
+    Student --&gt; UploadFile --&gt; S3 --&gt; DB
+    Student --&gt; SaveJob --&gt; DB
+    Student --&gt; TrackStatus --&gt; DB
+
+    DB --&gt; TrackStatus --&gt; Student
+    DB --&gt; PostJob --&gt; Recruiter
+    DB --&gt; ApplyJob --&gt; Recruiter
+
+    %% Styles
+    classDef user fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,color:#000;
+    classDef process fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
+    classDef storage fill:#e8f5e9,stroke:#388e3c,stroke-width:3px;
+
+    class Student,Recruiter user
+    class Register,Login,Validate,StoreUser,CreateCompany,PostJob,EditJob,DeleteJob,BrowseJobs,ApplyJob,UploadFile,SaveJob,TrackStatus,FetchCompanies,FetchJobs,FetchJobApplicants,UpdateApplicationStatus process
+    class DB,S3 storage</code></pre></p>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
