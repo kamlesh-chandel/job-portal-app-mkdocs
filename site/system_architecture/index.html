@@ -174,12 +174,12 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#high-level-diagram">
+<a class="md-nav__link" href="#system-architecture-diagram">
 <span class="md-ellipsis">
-      High Level Diagram
+      System Architecture Diagram
     </span>
 </a>
-<nav aria-label="High Level Diagram" class="md-nav">
+<nav aria-label="System Architecture Diagram" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#frontend">
@@ -199,6 +199,13 @@
 <a class="md-nav__link" href="#database">
 <span class="md-ellipsis">
       Database
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#file-storage">
+<span class="md-ellipsis">
+      File Storage
     </span>
 </a>
 </li>
@@ -263,14 +270,6 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../tech_stack/">
-<span class="md-ellipsis">
-    Tech Stack
-    
-  </span>
-</a>
-</li>
 </ul>
 </nav>
 </div>
@@ -282,43 +281,38 @@
 <hr/>
 <h2 id="tech-stack-overview">Tech Stack Overview<a class="headerlink" href="#tech-stack-overview" title="Permanent link">¶</a></h2>
 <p>The Job Portal App uses the <strong>MERN (MongoDB, Express, React, Node)</strong> stack</p>
-<h2 id="high-level-diagram">High Level Diagram<a class="headerlink" href="#high-level-diagram" title="Permanent link">¶</a></h2>
+<h2 id="system-architecture-diagram">System Architecture Diagram<a class="headerlink" href="#system-architecture-diagram" title="Permanent link">¶</a></h2>
 <pre class="mermaid"><code>graph LR
-    %% Define directions
-    direction LR
-
-    %% Frontend Section
-    subgraph "Frontend (Client Side)"
-        A[React + Redux + Shadcn UI + TailwindCSS]
-        AV[Vercel Hosting]
+    %% Frontend
+    subgraph "Frontend"
+        A[React App]
+        S3FE[Amazon S3 + CloudFront - Static Website Hosting]
     end
 
-    %% Backend Section
-    subgraph "Backend (Server Side)"
-        B[Node.js + Express]
-        BR[Render Hosting]
+    %% Backend
+    subgraph "Backend"
+        B[Node.js + Express API]
+        EB[Amazon Elastic Beanstalk - EC2]
         J[JWT Authentication]
     end
 
-    %% Database Section
-    subgraph "Database Layer"
-        C[(MongoDB Atlas)]
+    %% Database
+    subgraph "Database"
+        C[MongoDB Atlas]
     end
 
-    %% File Storage Section
-    subgraph "File Storage"
-        S3[AWS S3 - Resume/Profile Uploads]
+    %% File Storage
+    subgraph "Storage"
+        S3[AWS S3 - File Uploads]
     end
 
     %% Relationships
-    A --&gt;|HTTPS / REST API Calls| B
-    A --&gt;|Served from| AV
-    B --&gt;|Deployed on| BR
+    A --&gt;|HTTPS Requests| B
+    A --&gt;|Served via| S3FE
+    B --&gt;|Deployed on| EB
     B --&gt;|Uses JWT for Auth| J
-    B --&gt;|Mongoose ODM| C
-    B --&gt;|Uploads / Fetch Files| S3
-    A --&gt;|Receives Auth Token| J
-</code></pre>
+    B --&gt;|Reads/Writes Data| C
+    B --&gt;|Uploads/Downloads Files| S3</code></pre>
 <h3 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>React + Vite:</strong> Provides fast UI rendering and hot module replacement for rapid development.</li>
@@ -335,6 +329,10 @@
 <h3 id="database">Database<a class="headerlink" href="#database" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>MongoDB:</strong> Stores users, jobs, and applications. Each recruiter’s jobs and corresponding applications are linked via object references.</li>
+</ul>
+<h3 id="file-storage">File Storage<a class="headerlink" href="#file-storage" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>AWS S3:</strong> Stores Resume file and photos like company logo, user profile photo.</li>
 </ul>
 <hr/>
 <h2 id="deployment-structure">Deployment Structure<a class="headerlink" href="#deployment-structure" title="Permanent link">¶</a></h2>
@@ -369,6 +367,5 @@
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "search.highlight", "content.code.copy", "content.tabs.link", "toc.integrate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script>
 </body>
 </html>

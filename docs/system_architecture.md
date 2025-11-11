@@ -42,30 +42,4 @@ graph LR
     B -->|Uploads/Downloads Files| S3
 ```
 
-### Frontend
-- **React + Vite:** Provides fast UI rendering and hot module replacement for rapid development.
-- **Redux:** Manages global state across different components.
-- **Tailwind CSS:** Used for responsive and modern design.
-- **Shadcn/ui:** customizable component library used for accessible UI components (like modals, dropdowns, buttons, and inputs).
-
-### Backend
-- **Express.js:** Handles API routes and middleware logic.
-- **Node.js:** Provides a runtime environment for server-side logic.
-- **JWT Authentication:** Ensures secure login and role-based route protection.
-
-### Database
-- **MongoDB:** Stores users, jobs, and applications. Each recruiter’s jobs and corresponding applications are linked via object references.
-
-### File Storage
-- **AWS S3:** Stores Resume file and photos like company logo, user profile photo.
-
----
-
-## Deployment Structure
-
-- **Frontend Deployment:** Deployed on **Vercel** for fast builds and global CDN delivery.  
-- **Backend Deployment:** Hosted on **Render** for dynamic APIs.  
-- **Database:** Managed on **MongoDB Atlas**, ensuring scalability and cloud reliability.
-
-
 
