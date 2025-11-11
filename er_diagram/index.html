@@ -199,6 +199,14 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tech_stack/">
+<span class="md-ellipsis">
+    Tech Stack
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -210,15 +218,12 @@
 <pre class="mermaid"><code>erDiagram
     users {
         string _id  ""  
-        string full_name  ""  
+        string name  ""  
         string email  ""  
         string password  ""  
-        objectId role_id  "ref: Role"  
-        string[] profile_skills  ""  
-        string profile_resume  "resume file URL"  
-        string profile_resumeOriginalName  ""  
-        string profile_profilePhoto  ""  
-        objectId profile_company  "ref: Company"  
+        string[] skills  ""  
+        string resume_url  "resume file URL"  
+        string profile_url  "profile photo file URL"   
         Date created_at  ""  
         Date deleted_at  ""  
         Date updated_at  ""  
@@ -232,13 +237,22 @@
         Date updated_at  ""  
     }
 
+    user_roles {
+        string _id  ""  
+        objectId user_id  "ref: users"  
+        objectId role_id  "ref: roles"  
+        Date created_at  ""  
+        Date deleted_at  ""  
+        Date updated_at  ""  
+    }
+
     companies {
         string _id  ""  
         string name  ""  
         string website  ""  
         string location  ""  
-        string logo  ""  
-        objectId user_id  "ref: User"  
+        string logo_url  ""  
+        objectId user_id  "ref: users"  
         Date created_at  ""  
         Date deleted_at  ""  
         Date updated_at  ""  
@@ -252,19 +266,19 @@
         number salary  ""  
         number experience_level  ""  
         string location  ""  
-        string jobType  ""  
+        string job_type  ""  
         number positions  ""  
-        objectId company  "ref: Company"  
+        objectId company_id  "ref: companies"  
         string created_by  ""  
         Date created_at  ""  
         Date deleted_at  ""  
         Date updated_at  ""  
     }
 
-    applications {
+    submissions {
         string _id  ""  
-        objectId job  "ref: Job"  
-        objectId applicant  "ref: User"  
+        objectId job_id  "ref: jobs"  
+        objectId applicant_id  "ref: users"  
         string status  "pending | Under Review | Interview Scheduled | hired | rejected"  
         Date created_at  ""  
         Date deleted_at  ""  
@@ -273,22 +287,23 @@
 
     bookmarks {
         string _id  ""  
-        objectId user  "ref: User"  
-        objectId job  "ref: Job"  
-        date saved_at  ""  
+        objectId user_id  "ref: users"  
+        objectId job_id  "ref: jobs"  
         Date created_at  ""  
         Date deleted_at  ""  
         Date updated_at  ""  
     }
 
-    roles||--o{users:"assigned to"
-    users||--o{companies:"owns (as recruiter)"
-    companies||--o{jobs:"posts"
-    jobs||--o{applications:"receives"
-    users||--o{applications:"applies for"
-    users||--o|companies:"linked in profile.company"
-    users||--o{bookmarks:"saves job"
-    jobs||--o{bookmarks:"is saved by"
+    %% Relationships
+    users ||--o{ user_roles : "has"
+    roles ||--o{ user_roles : "assigned to"
+    users ||--o{ companies : "owns (as recruiter)"
+    companies ||--o{ jobs : "posts"
+    jobs ||--o{ submissions : "receives"
+    users ||--o{ submissions : "applies for"
+    users ||--o{ bookmarks : "saves job"
+    jobs ||--o{ bookmarks : "is saved by"
+
 </code></pre>
 </article>
 </div>

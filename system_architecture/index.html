@@ -179,45 +179,6 @@
       System Architecture Diagram
     </span>
 </a>
-<nav aria-label="System Architecture Diagram" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#frontend">
-<span class="md-ellipsis">
-      Frontend
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#backend">
-<span class="md-ellipsis">
-      Backend
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#database">
-<span class="md-ellipsis">
-      Database
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#file-storage">
-<span class="md-ellipsis">
-      File Storage
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deployment-structure">
-<span class="md-ellipsis">
-      Deployment Structure
-    </span>
-</a>
 </li>
 </ul>
 </nav>
@@ -270,6 +231,14 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tech_stack/">
+<span class="md-ellipsis">
+    Tech Stack
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -313,34 +282,6 @@
     B --&gt;|Uses JWT for Auth| J
     B --&gt;|Reads/Writes Data| C
     B --&gt;|Uploads/Downloads Files| S3</code></pre>
-<h3 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">¶</a></h3>
-<ul>
-<li><strong>React + Vite:</strong> Provides fast UI rendering and hot module replacement for rapid development.</li>
-<li><strong>Redux:</strong> Manages global state across different components.</li>
-<li><strong>Tailwind CSS:</strong> Used for responsive and modern design.</li>
-<li><strong>Shadcn/ui:</strong> customizable component library used for accessible UI components (like modals, dropdowns, buttons, and inputs).</li>
-</ul>
-<h3 id="backend">Backend<a class="headerlink" href="#backend" title="Permanent link">¶</a></h3>
-<ul>
-<li><strong>Express.js:</strong> Handles API routes and middleware logic.</li>
-<li><strong>Node.js:</strong> Provides a runtime environment for server-side logic.</li>
-<li><strong>JWT Authentication:</strong> Ensures secure login and role-based route protection.</li>
-</ul>
-<h3 id="database">Database<a class="headerlink" href="#database" title="Permanent link">¶</a></h3>
-<ul>
-<li><strong>MongoDB:</strong> Stores users, jobs, and applications. Each recruiter’s jobs and corresponding applications are linked via object references.</li>
-</ul>
-<h3 id="file-storage">File Storage<a class="headerlink" href="#file-storage" title="Permanent link">¶</a></h3>
-<ul>
-<li><strong>AWS S3:</strong> Stores Resume file and photos like company logo, user profile photo.</li>
-</ul>
-<hr/>
-<h2 id="deployment-structure">Deployment Structure<a class="headerlink" href="#deployment-structure" title="Permanent link">¶</a></h2>
-<ul>
-<li><strong>Frontend Deployment:</strong> Deployed on <strong>Vercel</strong> for fast builds and global CDN delivery.  </li>
-<li><strong>Backend Deployment:</strong> Hosted on <strong>Render</strong> for dynamic APIs.  </li>
-<li><strong>Database:</strong> Managed on <strong>MongoDB Atlas</strong>, ensuring scalability and cloud reliability.</li>
-</ul>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
