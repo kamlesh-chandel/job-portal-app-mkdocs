@@ -2,6 +2,8 @@
 
 This section explains how different users — **Recruiters** and **Students** — interact with the system and what actions they can perform.  
 
+---
+
 | Actor         | Functionality                   | Description                                                                 | Expected Outcome                          |
 | ------------- | ------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------- |
 | **Recruiter** | **Login / Signup**              | Secure access with authentication                                           | Recruiter can log in or create an account |
@@ -17,3 +19,4 @@ This section explains how different users — **Recruiters** and **Students** �
 |               | **Apply for Job**               | Submit resume and info for a job                                            | Application submitted                     |
 |               | **Edit Profile**                | Update personal info, resume, and skills                                    | Profile saved successfully                |
 |               | **Track Applications**          | View all applied jobs and their status                                      | Clear visibility of job progress          |
+

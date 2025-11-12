@@ -6,6 +6,8 @@ This section shows how data moves through the **Job Portal App** at different le
 
 ### Level 0 DFD
 The Level 0 diagram represents the overall system as a single process interacting with — **Students**, **Recruiters**, **AWS S3**, **MongoDB Atlas**.  
+
+--- 
 ```mermaid
 ---
 config:
@@ -44,6 +46,9 @@ flowchart TD
     class DB,S3 storage
 
 ```
+
+---
+
 ### Level 1 DFD
 This diagram breaks the system into key functional modules like Authentication, Company & Jobs, Student Actions, and Storage.
 ```mermaid
@@ -105,6 +110,9 @@ flowchart TD
 
 ### Level 2 DFD
 This level provides a detailed view of the internal operations inside each module.
+
+---
+
 ```mermaid
 flowchart TD
     %% Users
@@ -177,3 +185,4 @@ flowchart TD
     class Register,Login,Validate,StoreUser,CreateCompany,PostJob,EditJob,DeleteJob,BrowseJobs,ApplyJob,UploadFile,SaveJob,TrackStatus,FetchCompanies,FetchJobs,FetchJobApplicants,UpdateApplicationStatus process
     class DB,S3 storage
 ```
+

@@ -12,9 +12,13 @@
         <meta name="author" content="Kamlesh Chandel">
       
       
-        <link rel="canonical" href="https://<your-vercel-or-github-pages-link>/overview/">
+        <link rel="canonical" href="https://<your-vercel-or-github-pages-link>/functional_test_cases/">
       
       
+        <link rel="prev" href="../workflow/">
+      
+      
+        <link rel="next" href="../future_scope/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +26,7 @@
     
     
       
-        <title>Project Overview - Job Portal App</title>
+        <title>Functional Test Cases - Job Portal App</title>
       
     
     
@@ -64,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#project-overview" class="md-skip">
+        <a href="#unit-test-cases-job-portal-app" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Project Overview
+              Functional Test Cases
             
           </span>
         </div>
@@ -417,10 +421,32 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../functional_test_cases/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Functional Test Cases
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -431,6 +457,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -476,44 +531,122 @@
   
 
 
-<h1 id="project-overview">Project Overview<a class="headerlink" href="#project-overview" title="Permanent link">&para;</a></h1>
+<h1 id="unit-test-cases-job-portal-app">Unit Test Cases — Job Portal App<a class="headerlink" href="#unit-test-cases-job-portal-app" title="Permanent link">&para;</a></h1>
+<p>This document outlines the <strong>initial set of unit test cases</strong> for the <strong>Job Portal Application</strong>.<br />
+These tests focus on validating the core functionalities like <strong>Authentication</strong>, <strong>Company Registration</strong>, <strong>Job Management</strong>, <strong>Applications</strong>, and <strong>Profile Management</strong>.</p>
 <hr />
-<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
-<p>The main purpose of this project is to <strong>simplify and automate the recruitment process</strong> between <strong>students</strong> and <strong>recruiters</strong>.<br />
-It provides a platform that eliminates manual communication and creates an efficient, transparent process for applying and hiring.</p>
-<p>The system ensures:
-- Faster communication between job seekers and recruiters.
-- Centralized data storage for all job and application records.
-- Secure and easy management of user data and job listings.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Test Case No.</strong></th>
+<th><strong>Module Name</strong></th>
+<th><strong>Test Case Description</strong></th>
+<th><strong>Acceptance Criteria</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T.C. 1</strong></td>
+<td><strong>User Authentication - Signup</strong></td>
+<td>Verify that a new user (student/recruiter) can register successfully using valid name, email, password, and role.</td>
+<td>The system should create a new user record in the database, return <strong>201 Created</strong>, and a success message.</td>
+</tr>
+<tr>
+<td><strong>T.C. 2</strong></td>
+<td><strong>User Authentication - Signup (Duplicate Email)</strong></td>
+<td>Attempt to register a user with an existing email.</td>
+<td>The API should return <strong>400 Bad Request</strong> with an error message like <em>“Email already exists”</em>.</td>
+</tr>
+<tr>
+<td><strong>T.C. 3</strong></td>
+<td><strong>User Authentication - Login</strong></td>
+<td>Verify that a registered user can log in using correct credentials.</td>
+<td>The system should authenticate successfully, return <strong>200 OK</strong>, and provide a valid <strong>JWT token</strong>.</td>
+</tr>
+<tr>
+<td><strong>T.C. 4</strong></td>
+<td><strong>User Authentication - Login (Invalid Password)</strong></td>
+<td>Attempt to log in with an incorrect password.</td>
+<td>The API should return <strong>401 Unauthorized</strong> with a message <em>“Invalid credentials”</em>.</td>
+</tr>
+<tr>
+<td><strong>T.C. 5</strong></td>
+<td><strong>Company Registration</strong></td>
+<td>Verify that a recruiter can register a new company by providing valid company name, website, and logo.</td>
+<td>A new company record should be created in the database, return <strong>201 Created</strong>, and link to recruiter ID.</td>
+</tr>
+<tr>
+<td><strong>T.C. 6</strong></td>
+<td><strong>Company Update</strong></td>
+<td>Verify that a recruiter can update company details such as name, logo, or website.</td>
+<td>Updated company details should reflect in the database and return <strong>200 OK</strong> with success message.</td>
+</tr>
+<tr>
+<td><strong>T.C. 7</strong></td>
+<td><strong>Post Job</strong></td>
+<td>Verify that a recruiter can create a job post with all required details (title, description, location, etc.).</td>
+<td>A job should be saved successfully in the database and return <strong>201 Created</strong> with a job ID in response.</td>
+</tr>
+<tr>
+<td><strong>T.C. 8</strong></td>
+<td><strong>Get All Jobs</strong></td>
+<td>Verify that the system retrieves all available job listings for students.</td>
+<td>The API should return <strong>200 OK</strong> and a list of job objects in JSON format.</td>
+</tr>
+<tr>
+<td><strong>T.C. 9</strong></td>
+<td><strong>Get Job Details by ID</strong></td>
+<td>Verify that a student can fetch full job details using job ID.</td>
+<td>The API should return <strong>200 OK</strong> with job details like title, description, and company info.</td>
+</tr>
+<tr>
+<td><strong>T.C. 10</strong></td>
+<td><strong>Apply for Job</strong></td>
+<td>Verify that a student can apply for a job by submitting resume and job ID.</td>
+<td>The system should save the application in DB, return <strong>201 Created</strong>, and link it to the correct job &amp; user.</td>
+</tr>
+<tr>
+<td><strong>T.C. 11</strong></td>
+<td><strong>Get Applied Jobs (Student)</strong></td>
+<td>Verify that a student can view all applied jobs.</td>
+<td>The API should return <strong>200 OK</strong> and list of applications linked to the logged-in user.</td>
+</tr>
+<tr>
+<td><strong>T.C. 12</strong></td>
+<td><strong>Update Application Status</strong></td>
+<td>Verify that a recruiter can update an applicant’s job status (Pending → Hired/Rejected).</td>
+<td>The API should update the application status in DB and return <strong>200 OK</strong> with confirmation message.</td>
+</tr>
+<tr>
+<td><strong>T.C. 13</strong></td>
+<td><strong>Save Job (Bookmark)</strong></td>
+<td>Verify that a student can save a job to bookmarks for later viewing.</td>
+<td>The job should be saved in the user’s bookmark list and return <strong>200 OK</strong> with success message.</td>
+</tr>
+<tr>
+<td><strong>T.C. 14</strong></td>
+<td><strong>Unsave Job</strong></td>
+<td>Verify that a student can remove a previously saved job.</td>
+<td>The job should be removed from bookmarks and return <strong>200 OK</strong> with confirmation message.</td>
+</tr>
+<tr>
+<td><strong>T.C. 15</strong></td>
+<td><strong>Update Profile Information</strong></td>
+<td>Verify that a student can update their profile (skills, resume, profile photo).</td>
+<td>The updated data should reflect in the database, return <strong>200 OK</strong>, and success message displayed.</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Frontend:</strong> React.js, HTML5, CSS3, JavaScript (with Vite and TailwindCSS for styling)</li>
-<li><strong>Backend:</strong> Node.js, Express.js</li>
-<li><strong>Database:</strong> MongoDB (Cloud via MongoDB Atlas)</li>
-<li><strong>Authentication:</strong> JWT (JSON Web Token) based role management</li>
-<li><strong>Hosting:</strong> Vercel (Frontend) and Render (Backend)</li>
-<li><strong>Version Control:</strong> Git &amp; GitHub for branch-based development</li>
+<li>These are <strong>initial test cases</strong> for the early development phase of the project.  </li>
+<li>They will be expanded as new features like <strong>Job Search</strong>, <strong>Pagination</strong> etc. are implemented.  </li>
+<li>Test cases will be written using the following frameworks:</li>
+<li><strong>Frontend:</strong> Jest </li>
+<li><strong>Backend:</strong> Jest  </li>
 </ul>
 <hr />
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Secure Authentication:</strong> Only verified users can log in and perform specific actions.</li>
-<li><strong>Authorization:</strong> Role-based permissions for students and recruiters.</li>
-<li><strong>Recruiter Dashboard:</strong> Allows job posting, editing, and managing applicants.</li>
-<li><strong>Student Dashboard:</strong> Enables job browsing, applying, and profile management.</li>
-<li><strong>Resume Upload:</strong> Students can upload and update resumes anytime.</li>
-<li><strong>Application Tracking:</strong> Recruiters can update application status, and students can view statuses.</li>
-<li><strong>Responsive Design:</strong> Works smoothly across all devices.</li>
-</ul>
-<hr />
-<h2 id="project-highlights">Project Highlights<a class="headerlink" href="#project-highlights" title="Permanent link">&para;</a></h2>
-<p>This project demonstrates how real-world job portals work using the <strong>MERN stack</strong>.<br />
-It includes complete CRUD functionality, API integration, and database relationships between users, jobs, and applications.</p>
-<p>It also serves as a base project that can be further extended to include:
-- Admin dashboards
-- Notification systems
-- Job recommendations using AI</p>
 
 
 

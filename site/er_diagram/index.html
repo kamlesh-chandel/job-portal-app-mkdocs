@@ -9,7 +9,7 @@
 <meta content="Kamlesh Chandel" name="author"/>
 <link href="https://&lt;your-vercel-or-github-pages-link&gt;/er_diagram/" rel="canonical"/>
 <link href="../system_architecture/" rel="prev"/>
-<link href="../user_roles/" rel="next"/>
+<link href="../data_flow_diagram/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.21" name="generator"/>
 <title>ER Diagram - Job Portal App</title>
@@ -130,9 +130,17 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../business_use_cases/">
+<a class="md-nav__link" href="../user_roles/">
 <span class="md-ellipsis">
-    Business Use Cases
+    User Roles
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tech_stack/">
+<span class="md-ellipsis">
+    Tech Stack
     
   </span>
 </a>
@@ -141,6 +149,14 @@
 <a class="md-nav__link" href="../functional_use_cases/">
 <span class="md-ellipsis">
     Functional Use Cases
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../business_use_cases/">
+<span class="md-ellipsis">
+    Business Use Cases
     
   </span>
 </a>
@@ -163,9 +179,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../user_roles/">
+<a class="md-nav__link" href="../data_flow_diagram/">
 <span class="md-ellipsis">
-    User Roles
+    Data Flow Diagram
     
   </span>
 </a>
@@ -179,33 +195,17 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../functional_test_cases/">
+<span class="md-ellipsis">
+    Functional Test Cases
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../future_scope/">
 <span class="md-ellipsis">
     Future Scope
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../data_flow_diagram/">
-<span class="md-ellipsis">
-    Data Flow
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../authentication_authorization/">
-<span class="md-ellipsis">
-    Authentication &amp; Authorization
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../tech_stack/">
-<span class="md-ellipsis">
-    Tech Stack
     
   </span>
 </a>
@@ -219,6 +219,7 @@
 <article class="md-content__inner md-typeset">
 <h1 id="entity-relationship-er-diagram">Entity Relationship (ER) Diagram<a class="headerlink" href="#entity-relationship-er-diagram" title="Permanent link">¶</a></h1>
 <p>This diagram shows how different collections in the <strong>Job Portal App</strong> are related to each other.  </p>
+<hr/>
 <pre class="mermaid"><code>erDiagram
     users {
         string _id  ""  

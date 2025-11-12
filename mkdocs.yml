@@ -24,16 +24,17 @@ theme:
 # Navigation Sidebar
 nav:
   - Home: index.md
-  - Business Use Cases: business_use_cases.md
+  - User Roles: user_roles.md
+  - Tech Stack: tech_stack.md
   - Functional Use Cases: functional_use_cases.md
+  - Business Use Cases: business_use_cases.md
   - System Architecture (AWS): system_architecture.md
   - ER Diagram: er_diagram.md
-  - User Roles: user_roles.md
+  - Data Flow Diagram: data_flow_diagram.md
   - Workflow: workflow.md
+  - Functional Test Cases: functional_test_cases.md
   - Future Scope: future_scope.md
-  - Data Flow: data_flow_diagram.md
-  - Authentication & Authorization: authentication_authorization.md
-  - Tech Stack: tech_stack.md
+
 # Markdown Enhancements
 markdown_extensions:
   - admonition

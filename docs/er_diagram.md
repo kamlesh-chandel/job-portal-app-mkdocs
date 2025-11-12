@@ -2,6 +2,8 @@
 
 This diagram shows how different collections in the **Job Portal App** are related to each other.  
 
+---
+
 ```mermaid
 erDiagram
 	users {

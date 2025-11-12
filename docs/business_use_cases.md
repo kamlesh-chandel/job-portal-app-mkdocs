@@ -3,6 +3,8 @@
 This section explains the main **business use cases** of the Job Portal App.  
 Each use case represents how students and recruiters interact with the system in real-world scenarios. 
 
+---
+
 | # | Business Use Case               | Description                                                                   | Stakeholders         |
 | - | ------------------------------- | ----------------------------------------------------------------------------- | -------------------- |
 | 1 | Recruiters manage job postings  | Recruiters can create, edit, and delete job listings.                         | Recruiters           |

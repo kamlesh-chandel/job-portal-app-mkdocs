@@ -5,10 +5,6 @@
          <lastmod>2025-11-12</lastmod>
     </url>
     <url>
-         <loc>https://&lt;your-vercel-or-github-pages-link&gt;/authentication_authorization/</loc>
-         <lastmod>2025-11-12</lastmod>
-    </url>
-    <url>
          <loc>https://&lt;your-vercel-or-github-pages-link&gt;/business_use_cases/</loc>
          <lastmod>2025-11-12</lastmod>
     </url>
@@ -18,6 +14,10 @@
     </url>
     <url>
          <loc>https://&lt;your-vercel-or-github-pages-link&gt;/er_diagram/</loc>
+         <lastmod>2025-11-12</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;your-vercel-or-github-pages-link&gt;/functional_test_cases/</loc>
          <lastmod>2025-11-12</lastmod>
     </url>
     <url>
