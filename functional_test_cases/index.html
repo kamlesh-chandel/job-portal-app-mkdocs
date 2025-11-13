@@ -18,7 +18,7 @@
         <link rel="prev" href="../workflow/">
       
       
-        <link rel="next" href="../future_scope/">
+        <link rel="next" href="../test_plan/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#unit-test-cases-job-portal-app" class="md-skip">
+        <a href="#tc-1-authentication-and-authorization-module" class="md-skip">
           Skip to content
         </a>
       
@@ -474,9 +474,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#tc-1a-register-test-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      Notes
+      TC 1.A: Register Test Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tc-1b-login-test-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      TC 1.B: Login Test Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tc-1c-email-verification-test-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      TC 1.C: Email Verification Test Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tc-1d-role-based-authorization-test-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      TC 1.D: Role-Based Authorization Test Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tc-1e-protected-route-access-test-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      TC 1.E: Protected Route Access Test Cases
     </span>
   </a>
   
@@ -486,6 +522,28 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Test Plan
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -531,122 +589,317 @@
   
 
 
-<h1 id="unit-test-cases-job-portal-app">Unit Test Cases — Job Portal App<a class="headerlink" href="#unit-test-cases-job-portal-app" title="Permanent link">&para;</a></h1>
-<p>This document outlines the <strong>initial set of unit test cases</strong> for the <strong>Job Portal Application</strong>.<br />
-These tests focus on validating the core functionalities like <strong>Authentication</strong>, <strong>Company Registration</strong>, <strong>Job Management</strong>, <strong>Applications</strong>, and <strong>Profile Management</strong>.</p>
+<h1 id="tc-1-authentication-and-authorization-module">TC 1: Authentication and Authorization Module<a class="headerlink" href="#tc-1-authentication-and-authorization-module" title="Permanent link">&para;</a></h1>
 <hr />
+<h2 id="tc-1a-register-test-cases">TC 1.A: Register Test Cases<a class="headerlink" href="#tc-1a-register-test-cases" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th><strong>Test Case No.</strong></th>
-<th><strong>Module Name</strong></th>
-<th><strong>Test Case Description</strong></th>
-<th><strong>Acceptance Criteria</strong></th>
+<th>Test Case No.</th>
+<th>Module Name</th>
+<th>Test Case Description</th>
+<th>Acceptance Criteria</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>T.C. 1</strong></td>
-<td><strong>User Authentication - Signup</strong></td>
-<td>Verify that a new user (student/recruiter) can register successfully using valid name, email, password, and role.</td>
-<td>The system should create a new user record in the database, return <strong>201 Created</strong>, and a success message.</td>
+<td><strong>T.C.1.1</strong></td>
+<td>Registration</td>
+<td>Register with valid name, email, password</td>
+<td>User created, password hashed, verification email sent</td>
 </tr>
 <tr>
-<td><strong>T.C. 2</strong></td>
-<td><strong>User Authentication - Signup (Duplicate Email)</strong></td>
-<td>Attempt to register a user with an existing email.</td>
-<td>The API should return <strong>400 Bad Request</strong> with an error message like <em>“Email already exists”</em>.</td>
+<td><strong>T.C.1.2</strong></td>
+<td>Registration</td>
+<td>Register with existing email</td>
+<td>API returns 400 “Email already exists”</td>
 </tr>
 <tr>
-<td><strong>T.C. 3</strong></td>
-<td><strong>User Authentication - Login</strong></td>
-<td>Verify that a registered user can log in using correct credentials.</td>
-<td>The system should authenticate successfully, return <strong>200 OK</strong>, and provide a valid <strong>JWT token</strong>.</td>
+<td><strong>T.C.1.3</strong></td>
+<td>Registration</td>
+<td>Register with invalid email format</td>
+<td>API returns 400 “Invalid email format”</td>
 </tr>
 <tr>
-<td><strong>T.C. 4</strong></td>
-<td><strong>User Authentication - Login (Invalid Password)</strong></td>
-<td>Attempt to log in with an incorrect password.</td>
-<td>The API should return <strong>401 Unauthorized</strong> with a message <em>“Invalid credentials”</em>.</td>
+<td><strong>T.C.1.4</strong></td>
+<td>Registration</td>
+<td>Register with password less than 8 characters</td>
+<td>API returns 400 “Password must be at least 8 characters”</td>
 </tr>
 <tr>
-<td><strong>T.C. 5</strong></td>
-<td><strong>Company Registration</strong></td>
-<td>Verify that a recruiter can register a new company by providing valid company name, website, and logo.</td>
-<td>A new company record should be created in the database, return <strong>201 Created</strong>, and link to recruiter ID.</td>
+<td><strong>T.C.1.5</strong></td>
+<td>Registration</td>
+<td>Register missing required fields</td>
+<td>API returns 400 “All fields are required”</td>
 </tr>
 <tr>
-<td><strong>T.C. 6</strong></td>
-<td><strong>Company Update</strong></td>
-<td>Verify that a recruiter can update company details such as name, logo, or website.</td>
-<td>Updated company details should reflect in the database and return <strong>200 OK</strong> with success message.</td>
+<td><strong>T.C.1.6</strong></td>
+<td>Registration</td>
+<td>Register with name containing surrounding spaces</td>
+<td>Name is trimmed and saved correctly</td>
 </tr>
 <tr>
-<td><strong>T.C. 7</strong></td>
-<td><strong>Post Job</strong></td>
-<td>Verify that a recruiter can create a job post with all required details (title, description, location, etc.).</td>
-<td>A job should be saved successfully in the database and return <strong>201 Created</strong> with a job ID in response.</td>
+<td><strong>T.C.1.7</strong></td>
+<td>Registration</td>
+<td>Email verification token generation</td>
+<td>Verification email must include a valid JWT token</td>
 </tr>
 <tr>
-<td><strong>T.C. 8</strong></td>
-<td><strong>Get All Jobs</strong></td>
-<td>Verify that the system retrieves all available job listings for students.</td>
-<td>The API should return <strong>200 OK</strong> and a list of job objects in JSON format.</td>
+<td><strong>T.C.1.8</strong></td>
+<td>Registration</td>
+<td>Ensure password hashing on registration</td>
+<td>Stored password must not match plain password</td>
 </tr>
 <tr>
-<td><strong>T.C. 9</strong></td>
-<td><strong>Get Job Details by ID</strong></td>
-<td>Verify that a student can fetch full job details using job ID.</td>
-<td>The API should return <strong>200 OK</strong> with job details like title, description, and company info.</td>
+<td><strong>T.C.1.9</strong></td>
+<td>Registration</td>
+<td>Register after soft deletion</td>
+<td>New user allowed only if deleted_at is not null</td>
 </tr>
 <tr>
-<td><strong>T.C. 10</strong></td>
-<td><strong>Apply for Job</strong></td>
-<td>Verify that a student can apply for a job by submitting resume and job ID.</td>
-<td>The system should save the application in DB, return <strong>201 Created</strong>, and link it to the correct job &amp; user.</td>
-</tr>
-<tr>
-<td><strong>T.C. 11</strong></td>
-<td><strong>Get Applied Jobs (Student)</strong></td>
-<td>Verify that a student can view all applied jobs.</td>
-<td>The API should return <strong>200 OK</strong> and list of applications linked to the logged-in user.</td>
-</tr>
-<tr>
-<td><strong>T.C. 12</strong></td>
-<td><strong>Update Application Status</strong></td>
-<td>Verify that a recruiter can update an applicant’s job status (Pending → Hired/Rejected).</td>
-<td>The API should update the application status in DB and return <strong>200 OK</strong> with confirmation message.</td>
-</tr>
-<tr>
-<td><strong>T.C. 13</strong></td>
-<td><strong>Save Job (Bookmark)</strong></td>
-<td>Verify that a student can save a job to bookmarks for later viewing.</td>
-<td>The job should be saved in the user’s bookmark list and return <strong>200 OK</strong> with success message.</td>
-</tr>
-<tr>
-<td><strong>T.C. 14</strong></td>
-<td><strong>Unsave Job</strong></td>
-<td>Verify that a student can remove a previously saved job.</td>
-<td>The job should be removed from bookmarks and return <strong>200 OK</strong> with confirmation message.</td>
-</tr>
-<tr>
-<td><strong>T.C. 15</strong></td>
-<td><strong>Update Profile Information</strong></td>
-<td>Verify that a student can update their profile (skills, resume, profile photo).</td>
-<td>The updated data should reflect in the database, return <strong>200 OK</strong>, and success message displayed.</td>
+<td><strong>T.C.1.10</strong></td>
+<td>Registration</td>
+<td>Verify timestamps created_at and updated_at</td>
+<td>Both timestamps should be auto-populated</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
-<ul>
-<li>These are <strong>initial test cases</strong> for the early development phase of the project.  </li>
-<li>They will be expanded as new features like <strong>Job Search</strong>, <strong>Pagination</strong> etc. are implemented.  </li>
-<li>Test cases will be written using the following frameworks:</li>
-<li><strong>Frontend:</strong> Jest </li>
-<li><strong>Backend:</strong> Jest  </li>
-</ul>
+<h2 id="tc-1b-login-test-cases">TC 1.B: Login Test Cases<a class="headerlink" href="#tc-1b-login-test-cases" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Test Case No.</th>
+<th>Module Name</th>
+<th>Test Case Description</th>
+<th>Acceptance Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T.C.2.1</strong></td>
+<td>Login</td>
+<td>Login with correct email and password</td>
+<td>Return success and JWT token</td>
+</tr>
+<tr>
+<td><strong>T.C.2.2</strong></td>
+<td>Login</td>
+<td>Login with wrong password</td>
+<td>Return 401 “Invalid credentials”</td>
+</tr>
+<tr>
+<td><strong>T.C.2.3</strong></td>
+<td>Login</td>
+<td>Login with unregistered email</td>
+<td>Return 404 “User not found”</td>
+</tr>
+<tr>
+<td><strong>T.C.2.4</strong></td>
+<td>Login</td>
+<td>Login before email verification</td>
+<td>Return 403 “Email not verified”</td>
+</tr>
+<tr>
+<td><strong>T.C.2.5</strong></td>
+<td>Login</td>
+<td>Login of soft-deleted user</td>
+<td>Return 403 “Account deleted”</td>
+</tr>
+<tr>
+<td><strong>T.C.2.6</strong></td>
+<td>Login</td>
+<td>Login with missing email or password</td>
+<td>Return 400 “All fields are required”</td>
+</tr>
+<tr>
+<td><strong>T.C.2.7</strong></td>
+<td>Login</td>
+<td>Ensure password select:false is enforced</td>
+<td>Password must not be returned in any response</td>
+</tr>
+<tr>
+<td><strong>T.C.2.8</strong></td>
+<td>Login</td>
+<td>Login with uppercase email</td>
+<td>Email should auto-lowercase and login successfully</td>
+</tr>
+<tr>
+<td><strong>T.C.2.9</strong></td>
+<td>Login</td>
+<td>Validate token returned for FE localStorage</td>
+<td>Token must be present in login response</td>
+</tr>
+<tr>
+<td><strong>T.C.2.10</strong></td>
+<td>Login</td>
+<td>Ensure timestamps on login</td>
+<td>updated_at should be updated after login</td>
+</tr>
+</tbody>
+</table>
 <hr />
+<h2 id="tc-1c-email-verification-test-cases">TC 1.C: Email Verification Test Cases<a class="headerlink" href="#tc-1c-email-verification-test-cases" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Test Case No.</th>
+<th>Module Name</th>
+<th>Test Case Description</th>
+<th>Acceptance Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T.C.3.1</strong></td>
+<td>Email Verification</td>
+<td>Verify user with correct token</td>
+<td>User isVerified = true</td>
+</tr>
+<tr>
+<td><strong>T.C.3.2</strong></td>
+<td>Email Verification</td>
+<td>Verify with expired token</td>
+<td>Return 400 “Verification link expired”</td>
+</tr>
+<tr>
+<td><strong>T.C.3.3</strong></td>
+<td>Email Verification</td>
+<td>Verify with invalid token</td>
+<td>Return 401 “Invalid verification token”</td>
+</tr>
+<tr>
+<td><strong>T.C.3.4</strong></td>
+<td>Email Verification</td>
+<td>Verify already verified user</td>
+<td>Return 400 “Email already verified”</td>
+</tr>
+<tr>
+<td><strong>T.C.3.5</strong></td>
+<td>Email Verification</td>
+<td>Verify with tampered token</td>
+<td>Return 401 “Invalid signature”</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tc-1d-role-based-authorization-test-cases">TC 1.D: Role-Based Authorization Test Cases<a class="headerlink" href="#tc-1d-role-based-authorization-test-cases" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Test Case No.</th>
+<th>Module Name</th>
+<th>Test Case Description</th>
+<th>Acceptance Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T.C.4.1</strong></td>
+<td>Authorization</td>
+<td>Recruiter accessing student-only route</td>
+<td>Return 403 “Access denied”</td>
+</tr>
+<tr>
+<td><strong>T.C.4.2</strong></td>
+<td>Authorization</td>
+<td>Student accessing recruiter-only route</td>
+<td>Return 403 “Not allowed for this role”</td>
+</tr>
+<tr>
+<td><strong>T.C.4.3</strong></td>
+<td>Authorization</td>
+<td>Valid JWT and correct role access</td>
+<td>Request allowed</td>
+</tr>
+<tr>
+<td><strong>T.C.4.4</strong></td>
+<td>Authorization</td>
+<td>Valid JWT but incorrect role</td>
+<td>Return 403</td>
+</tr>
+<tr>
+<td><strong>T.C.4.5</strong></td>
+<td>Authorization</td>
+<td>Access without JWT</td>
+<td>Return 401 “Authorization token missing”</td>
+</tr>
+<tr>
+<td><strong>T.C.4.6</strong></td>
+<td>Authorization</td>
+<td>Access with expired JWT</td>
+<td>Return 401 “Token expired”</td>
+</tr>
+<tr>
+<td><strong>T.C.4.7</strong></td>
+<td>Authorization</td>
+<td>Access with tampered JWT</td>
+<td>Return 401 “Invalid token”</td>
+</tr>
+<tr>
+<td><strong>T.C.4.8</strong></td>
+<td>Authorization</td>
+<td>Access with deleted or blocked user</td>
+<td>Return 403 “Account disabled”</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tc-1e-protected-route-access-test-cases">TC 1.E: Protected Route Access Test Cases<a class="headerlink" href="#tc-1e-protected-route-access-test-cases" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Test Case No.</th>
+<th>Module Name</th>
+<th>Test Case Description</th>
+<th>Acceptance Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T.C.5.1</strong></td>
+<td>Protected Routes</td>
+<td>Fetch user profile with valid JWT</td>
+<td>Profile returned successfully</td>
+</tr>
+<tr>
+<td><strong>T.C.5.2</strong></td>
+<td>Protected Routes</td>
+<td>Fetch profile without token</td>
+<td>Return 401</td>
+</tr>
+<tr>
+<td><strong>T.C.5.3</strong></td>
+<td>Protected Routes</td>
+<td>Fetch profile with expired token</td>
+<td>Return 401</td>
+</tr>
+<tr>
+<td><strong>T.C.5.4</strong></td>
+<td>Protected Routes</td>
+<td>Access route after token removal</td>
+<td>Return 401</td>
+</tr>
+<tr>
+<td><strong>T.C.5.5</strong></td>
+<td>Protected Routes</td>
+<td>Ensure user returned matches token user</td>
+<td>Returned user must match token</td>
+</tr>
+<tr>
+<td><strong>T.C.5.6</strong></td>
+<td>Protected Routes</td>
+<td>Access with old token after password change (future)</td>
+<td>Return 401 invalid token</td>
+</tr>
+<tr>
+<td><strong>T.C.5.7</strong></td>
+<td>Protected Routes</td>
+<td>Ensure sensitive fields (password) not returned</td>
+<td>Password must never appear in API response</td>
+</tr>
+</tbody>
+</table>
 
 
 

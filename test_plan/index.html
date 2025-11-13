@@ -12,9 +12,13 @@
         <meta name="author" content="Kamlesh Chandel">
       
       
-        <link rel="canonical" href="https://<your-vercel-or-github-pages-link>/introduction/">
+        <link rel="canonical" href="https://<your-vercel-or-github-pages-link>/test_plan/">
       
       
+        <link rel="prev" href="../functional_test_cases/">
+      
+      
+        <link rel="next" href="../future_scope/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +26,7 @@
     
     
       
-        <title>Introduction - Job Portal App</title>
+        <title>Test Plan - Job Portal App</title>
       
     
     
@@ -64,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#test-plan-job-portal-app" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction
+              Test Plan
             
           </span>
         </div>
@@ -439,10 +443,32 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../test_plan/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Test Plan
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -453,6 +479,125 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Objective
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-in-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. In Scope
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-out-of-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Out of Scope
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-test-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Test Items
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-testing-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Testing Approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-data-driven-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Data-Driven Testing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-test-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Test Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-exit-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Exit Criteria
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-risk-mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Risk &amp; Mitigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Deliverables
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -498,25 +643,368 @@
   
 
 
-<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
-<p>The <strong>Job Portal App</strong> is a modern web-based application that connects <strong>students</strong> who are actively seeking jobs or internships with <strong>recruiters</strong> offering employment opportunities.<br />
-It aims to make recruitment more organized, faster, and transparent for both sides.</p>
+<h1 id="test-plan-job-portal-app">Test Plan – Job Portal App<a class="headerlink" href="#test-plan-job-portal-app" title="Permanent link">&para;</a></h1>
+<p>Below is the comprehensive test plan for the Job Portal Application, structured in a tabular format as per the required template.</p>
 <hr />
-<h2 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">&para;</a></h2>
-<p>The traditional recruitment process often involves lengthy communication, multiple applications, and unclear status tracking.<br />
-Students face difficulty knowing whether they are selected or rejected, and recruiters find it challenging to manage a large number of applicants manually.  </p>
-<p>This project solves these issues by providing a <strong>centralized platform</strong> where:
-- Students can easily browse and apply for jobs.
-- Recruiters can efficiently manage job postings and applications.
-- Both parties can communicate through a single, structured system.</p>
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purpose</td>
+<td>Define the strategy and approach for testing the Job Portal Application (Frontend + Backend).</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Covers authentication, role-based access, companies, jobs, submissions, bookmarks, UI flows, and API validations.</td>
+</tr>
+<tr>
+<td>Audience</td>
+<td>Developers, QA engineers, mentors, and stakeholders.</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="how-it-simplifies-the-process">How It Simplifies the Process<a class="headerlink" href="#how-it-simplifies-the-process" title="Permanent link">&para;</a></h2>
-<p>The Job Portal App simplifies the entire hiring workflow by offering:
-- <strong>Centralized job listings:</strong> All available jobs are displayed in one place.
-- <strong>Role-based access:</strong> Recruiters and students have separate dashboards and permissions.
-- <strong>Application tracking:</strong> Students can see their job application status (Pending, Under Review, Interview Scheduled, Hired or Rejected) in real-time.
-- <strong>Data security:</strong> Authentication ensures that user data and applications remain secure.</p>
-<p>This system makes job management convenient and provides a professional, digital experience for both recruiters and applicants.</p>
+<h2 id="2-objective">2. Objective<a class="headerlink" href="#2-objective" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Objective</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ensure Quality</td>
+<td>Validate that all modules function as expected in various scenarios (happy, negative, boundary).</td>
+</tr>
+<tr>
+<td>Ensure Security</td>
+<td>Verify JWT authentication, password hashing, and role-based authorization.</td>
+</tr>
+<tr>
+<td>Ensure Stability</td>
+<td>Verify API reliability, error handling, and correct data flows across modules.</td>
+</tr>
+<tr>
+<td>Ensure Usability</td>
+<td>Confirm that UI is consistent, user-friendly, and behaves correctly on all flows.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-in-scope">3. In Scope<a class="headerlink" href="#3-in-scope" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>In Scope Modules</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User Registration &amp; Login</td>
+</tr>
+<tr>
+<td>Email Verification</td>
+</tr>
+<tr>
+<td>JWT Authentication</td>
+</tr>
+<tr>
+<td>Role-Based Authorization</td>
+</tr>
+<tr>
+<td>Company Management</td>
+</tr>
+<tr>
+<td>Job Management</td>
+</tr>
+<tr>
+<td>Job Applications / Submissions</td>
+</tr>
+<tr>
+<td>Bookmarking Feature</td>
+</tr>
+<tr>
+<td>Frontend UI Testing</td>
+</tr>
+<tr>
+<td>API Testing</td>
+</tr>
+<tr>
+<td>Validation Testing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-out-of-scope">4. Out of Scope<a class="headerlink" href="#4-out-of-scope" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Out of Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Performance testing (load, stress)</td>
+</tr>
+<tr>
+<td>Penetration testing / security red teaming</td>
+</tr>
+<tr>
+<td>Third-party service internal logic (AWS S3, email service)</td>
+</tr>
+<tr>
+<td>Localization (multi-language support)</td>
+</tr>
+<tr>
+<td>Mobile app-specific behavior</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-test-items">5. Test Items<a class="headerlink" href="#5-test-items" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Items to Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>Register, Login, Email Verify, JWT validation</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Role-based access (student/recruiter)</td>
+</tr>
+<tr>
+<td>Company Module</td>
+<td>Create, update, fetch companies</td>
+</tr>
+<tr>
+<td>Job Module</td>
+<td>Post job, edit job, delete job, view jobs</td>
+</tr>
+<tr>
+<td>Submission Module</td>
+<td>Apply job, view applicants, update status</td>
+</tr>
+<tr>
+<td>Bookmark Module</td>
+<td>Save jobs, remove saved jobs</td>
+</tr>
+<tr>
+<td>Frontend UI</td>
+<td>Forms, routing, rendering, error states</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-testing-approach">6. Testing Approach<a class="headerlink" href="#6-testing-approach" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Framework</td>
+<td><strong>Vitest</strong> for unit &amp; integration (Frontend + Backend), <strong>Supertest</strong> for API testing</td>
+</tr>
+<tr>
+<td>Tools</td>
+<td>React Testing Library, Postman, MongoDB Compass</td>
+</tr>
+<tr>
+<td>Test Levels</td>
+<td>Unit testing, Component testing, API testing, Integration testing</td>
+</tr>
+<tr>
+<td>Strategy</td>
+<td>Data-driven, modular, feature-wise testing</td>
+</tr>
+<tr>
+<td>File Structure</td>
+<td><br><strong>client/tests/</strong> → frontend unit &amp; component tests <br><strong>server/tests/</strong> → backend api &amp; unit tests</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-data-driven-testing">7. Data-Driven Testing<a class="headerlink" href="#7-data-driven-testing" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Test Data Type</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Valid User Data</td>
+<td>Correct name, valid email, strong password</td>
+</tr>
+<tr>
+<td>Invalid User Data</td>
+<td>Wrong email format, weak password</td>
+</tr>
+<tr>
+<td>Role Data</td>
+<td><code>student</code>, <code>recruiter</code></td>
+</tr>
+<tr>
+<td>Company Data</td>
+<td>Valid company name, website, address</td>
+</tr>
+<tr>
+<td>Job Data</td>
+<td>Titles, descriptions, salary ranges</td>
+</tr>
+<tr>
+<td>Application Data</td>
+<td>Status values: pending, under review, hired, rejected</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-test-cases">8. Test Cases<a class="headerlink" href="#8-test-cases" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>Refer to <strong>Authentication Test Cases (TC 1)</strong></td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>TC 2</td>
+</tr>
+<tr>
+<td>Company Module</td>
+<td>TC 3</td>
+</tr>
+<tr>
+<td>Job Module</td>
+<td>TC 4</td>
+</tr>
+<tr>
+<td>Submissions</td>
+<td>TC 5</td>
+</tr>
+<tr>
+<td>Bookmarks</td>
+<td>TC 6</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-exit-criteria">9. Exit Criteria<a class="headerlink" href="#9-exit-criteria" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All test cases executed</td>
+<td>100% planned tests executed</td>
+</tr>
+<tr>
+<td>95% test cases pass</td>
+<td>Critical flows must have 100% pass rate</td>
+</tr>
+<tr>
+<td>No major/blocker bugs</td>
+<td>All P0/P1 bugs resolved</td>
+</tr>
+<tr>
+<td>Test coverage target met</td>
+<td>Target: 80%+ for backend, 70%+ for frontend</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-risk-mitigation">10. Risk &amp; Mitigation<a class="headerlink" href="#10-risk-mitigation" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Incomplete test coverage</td>
+<td>High</td>
+<td>Prioritize critical flows (auth, jobs, submissions)</td>
+</tr>
+<tr>
+<td>API integration failures</td>
+<td>Medium</td>
+<td>Use Postman + Supertest for early validation</td>
+</tr>
+<tr>
+<td>Incorrect role mapping</td>
+<td>High</td>
+<td>Add strict validation + DB seeding</td>
+</tr>
+<tr>
+<td>Environment issues</td>
+<td>Medium</td>
+<td>Use <code>.env.example</code> and consistent setup docs</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-deliverables">11. Deliverables<a class="headerlink" href="#11-deliverables" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Deliverable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Test Plan Document</td>
+<td>This file</td>
+</tr>
+<tr>
+<td>Test Case Documents</td>
+<td>Separate <code>.md</code> files for each module</td>
+</tr>
+<tr>
+<td>Test Execution Report</td>
+<td>Summary of passed/failed test cases</td>
+</tr>
+<tr>
+<td>Defect Report</td>
+<td>List of bugs with severity and status</td>
+</tr>
+<tr>
+<td>Coverage Report</td>
+<td>Vitest coverage summary</td>
+</tr>
+</tbody>
+</table>
+<hr />
 
 
 
