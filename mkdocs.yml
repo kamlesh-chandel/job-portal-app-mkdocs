@@ -32,8 +32,8 @@ nav:
   - ER Diagram: er_diagram.md
   - Data Flow Diagram: data_flow_diagram.md
   - Workflow: workflow.md
-  - Functional Test Cases: functional_test_cases.md
   - Test Plan: test_plan.md
+  - Functional Test Cases: functional_test_cases.md
   - Future Scope: future_scope.md
 
 # Markdown Enhancements

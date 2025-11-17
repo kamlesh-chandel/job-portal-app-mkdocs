@@ -43,18 +43,6 @@ Below is the comprehensive test plan for the Job Portal Application, structured 
 
 ---
 
-## 4. Out of Scope
-
-| Out of Scope |
-|--------------|
-| Performance testing (load, stress) |
-| Penetration testing / security red teaming |
-| Third-party service internal logic (AWS S3, email service) |
-| Localization (multi-language support) |
-| Mobile app-specific behavior |
-
----
-
 ## 5. Test Items
 
 | Module | Items to Test |
@@ -112,7 +100,7 @@ Below is the comprehensive test plan for the Job Portal Application, structured 
 | Criteria | Description |
 |----------|-------------|
 | All test cases executed | 100% planned tests executed |
-| 95% test cases pass | Critical flows must have 100% pass rate |
+| 80% test cases pass | Critical flows must have 100% pass rate |
 | No major/blocker bugs | All P0/P1 bugs resolved |
 | Test coverage target met | Target: 80%+ for backend, 70%+ for frontend |
 
