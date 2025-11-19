@@ -8,8 +8,6 @@ This section explains how different users â€” **Recruiters** and **Students** â€
 | ------------- | ------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------- |
 | **Recruiter** | **Login / Signup**              | Secure access with authentication                                           | Recruiter can log in or create an account |
 |               | **Post Job**                    | Create new job postings with title, description, location, and requirements | New job appears in job listings           |
-|               | **Edit Job**                    | Modify job details when needed                                              | Updated job visible to students           |
-|               | **Delete Job**                  | Remove outdated job postings                                                | Job removed from job list                 |
 |               | **View Applicants**             | View all students who applied for their job                                 | Applicant details visible                 |
 |               | **Download Resume**             | View or download resumes of applicants                                      | PDF resume accessible                     |
 |               | **Update Application Status** | Change application status                                                   | Student sees updated status               |

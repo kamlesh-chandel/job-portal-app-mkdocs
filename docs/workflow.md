@@ -37,7 +37,7 @@ This section explains how the system works for both **Students** and **Recruiter
    Recruiter creates a new job post with details like title, description, experience, and location.
 
 3. **Manage Jobs:**  
-   Recruiter can edit or delete their posted jobs at any time.
+   Recruiter can see their posted jobs at any time.
 
 4. **View Applicants:**  
    The system lists all students who have applied for each job post.

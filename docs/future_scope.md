@@ -1,23 +1,35 @@
 # Future Scope
 
-The Job Portal App can be expanded with more advanced and industry-level features to make it more intelligent, scalable, and user-friendly.
+The Job Portal App can be enhanced with more advanced, intelligent, and scalable features to improve the experience for students as well as recruiters.
 
-### Possible Future Enhancements
+## Enhanced Company Management
+- **Edit Company:** Modify company details such as description, logo, or website.  
+- **Delete Company:** Remove outdated or invalid companies.
 
-1. **Meeting Scheduling Feature:**
-   Meeting can be Scheduled between students and recruiters.
+## Advanced Job Management
+- **Edit Job:** Update job details such as salary, description, title, or requirements.  
+- **Delete Job:** Remove jobs that are closed or no longer relevant.
 
-2. **AI-Based Job Recommendations:**  
-   Suggests jobs to students based on their profile, resume, and application history.
+## Advanced Job Filtering
+Allow students to filter jobs using various criteria such as:  
+- Salary range  
+- Experience level  
+- Job type (full-time, internship, remote, hybrid)  
+- Required skills  
+- Company  
+- Location  
 
-3. **Resume Parsing and Analysis:**  
-   Automatically extracts keywords from uploaded resumes to match with recruiter job requirements.
+## Meeting Scheduling Feature
+Enables scheduled meetings or live sessions between students and recruiters.
 
-4. **Email & SMS Notifications:**  
-   Sends automatic alerts to users when job status changes or new matching jobs are available.
+## AI-Based Job Recommendations
+Provides personalized job suggestions based on user profile, resume data, skills, and past application history.
 
-5. **Payment or Subscription Module:**  
-   Allows premium recruiters to highlight their job posts or access special features.
----
+## Resume Parsing & Analysis
+Automatically extracts relevant keywords and skill sets from uploaded resumes to match with recruiter job requirements.
 
-These features will make the platform more robust, intelligent, and closer to real-world job portals like LinkedIn or Indeed.
+## Email & SMS Notifications
+Sends automated alerts for application updates, new matching jobs, or recruiter messages.
+
+## Payment or Subscription Module
+Allows premium recruiters to highlight job posts, access exclusive tools, or unlock advanced features.

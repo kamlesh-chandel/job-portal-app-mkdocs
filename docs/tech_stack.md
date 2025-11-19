@@ -19,7 +19,7 @@ This page outlines the chosen technology stack for the **Job Portal Application*
 - **MongoDB (8.0.):** Stores users, jobs, and applications. Each recruiter’s jobs and corresponding applications are linked via object references.  
 
 ## File Storage
-- **AWS S3 (v33.902.0 AWS SDK):** Stores resume files and photos like company logo and user profile photo.
+- **Cloudinary (2.8.0):** Stores resume files and photos like company logo and user profile photo.
 
 
 ---

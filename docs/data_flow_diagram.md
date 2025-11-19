@@ -15,12 +15,12 @@ The Level 0 diagram represents the overall system as a single process interactin
 This diagram breaks the system into key functional modules like Authentication, Company & Jobs, Student Actions, and Storage.
 
 <p style="margin-left: 250px;">
-  <img src="../assets/dfd_level_1.png" alt="DFD Level 1 Diagram" width="500" height="100">
+  <img src="../assets/dfd_level_1.png" alt="DFD Level 1 Diagram" width="700" height="150">
 </p>
 
 ### Level 2 DFD
 This level provides a detailed view of the internal operations inside each module.
 
 <p style="margin-left: 250px;">
-  <img src="../assets/dfd_level_2.png" alt="DFD Level 2 Diagram" width="500" height="100">
+  <img src="../assets/dfd_level_2.png" alt="DFD Level 2 Diagram" width="900" height="250">
 </p>

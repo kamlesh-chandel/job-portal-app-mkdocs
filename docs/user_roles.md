@@ -28,7 +28,6 @@ Recruiters are users responsible for posting jobs and managing student applicati
 ### Main Functionalities:
 - **Account Access:** Login or register securely as a recruiter.
 - **Post Jobs:** Create new job listings with required details.
-- **Edit or Delete Jobs:** Modify or remove previously posted jobs.
 - **View Applicants:** See a list of all students who applied to their jobs.
 - **Resume Review:** Access student resumes directly through the dashboard.
 - **Updating Application Status:** Update the application status for each applicant.
