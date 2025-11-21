@@ -21,7 +21,7 @@ The architecture mainly focuses on providing a scalable and secure environment u
 - **Database (MongoDB Atlas):**  
   Stores all user, job, company, bookmarks and application data securely in the cloud.
 
-- **File Storage (AWS S3):**  
+- **File Storage (Cloudinary):**  
   Used to store uploaded files like resumes and profile photos.  
   
 - **Security:**  
