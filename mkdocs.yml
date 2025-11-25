@@ -31,6 +31,7 @@ nav:
   - System Architecture (AWS): system_architecture.md
   - ER Diagram: er_diagram.md
   - Data Flow Diagram: data_flow_diagram.md
+  - CI/CD Pipeline and Deployment Flow: pipeline_and_deployment_flow.md
   - Workflow: workflow.md
   - Test Plan: test_plan.md
   - Functional Test Cases: functional_test_cases.md

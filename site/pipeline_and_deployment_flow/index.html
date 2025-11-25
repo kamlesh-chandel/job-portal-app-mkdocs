@@ -7,12 +7,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="A documentation site for the Job Portal App Project" name="description"/>
 <meta content="Kamlesh Chandel" name="author"/>
-<link href="https://&lt;your-vercel-or-github-pages-link&gt;/er_diagram/" rel="canonical"/>
-<link href="../system_architecture/" rel="prev"/>
-<link href="../data_flow_diagram/" rel="next"/>
+<link href="https://&lt;your-vercel-or-github-pages-link&gt;/pipeline_and_deployment_flow/" rel="canonical"/>
+<link href="../data_flow_diagram/" rel="prev"/>
+<link href="../workflow/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.21" name="generator"/>
-<title>ER Diagram - Job Portal App</title>
+<title>CI/CD Pipeline and Deployment Flow - Job Portal App</title>
 <link href="../assets/stylesheets/main.2a3383ac.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -24,7 +24,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#entity-relationship-er-diagram">
+<a class="md-skip" href="#cicd-pipeline-and-deployment-flow">
           Skip to content
         </a>
 </div>
@@ -48,7 +48,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              ER Diagram
+              CI/CD Pipeline and Deployment Flow
             
           </span>
 </div>
@@ -169,9 +169,8 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../er_diagram/">
 <span class="md-ellipsis">
     ER Diagram
     
@@ -186,13 +185,100 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../pipeline_and_deployment_flow/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    CI/CD Pipeline and Deployment Flow
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     CI/CD Pipeline and Deployment Flow
     
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#code-merge-workflow">
+<span class="md-ellipsis">
+      Code Merge Workflow
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ci-workflow">
+<span class="md-ellipsis">
+      CI Workflow
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cd-workflow">
+<span class="md-ellipsis">
+      CD Workflow
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sast-static-application-security-testing">
+<span class="md-ellipsis">
+      SAST – Static Application Security Testing
+    </span>
+</a>
+<nav aria-label="SAST – Static Application Security Testing" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sast-with-trivy">
+<span class="md-ellipsis">
+      SAST With Trivy
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sast-with-semgrep">
+<span class="md-ellipsis">
+      SAST With Semgrep
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dast-dynamic-application-security-testing">
+<span class="md-ellipsis">
+      DAST – Dynamic Application Security Testing
+    </span>
+</a>
+<nav aria-label="DAST – Dynamic Application Security Testing" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dast-scans-with-owasp-zap">
+<span class="md-ellipsis">
+      DAST Scans with OWASP ZAP
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dast-scans-with-akido">
+<span class="md-ellipsis">
+      DAST Scans with Akido
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../workflow/">
@@ -233,107 +319,67 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="entity-relationship-er-diagram">Entity Relationship (ER) Diagram<a class="headerlink" href="#entity-relationship-er-diagram" title="Permanent link">¶</a></h1>
-<p>This diagram shows how different collections in the <strong>Job Portal App</strong> are related to each other.  </p>
+<h1 id="cicd-pipeline-and-deployment-flow">CI/CD Pipeline and Deployment Flow<a class="headerlink" href="#cicd-pipeline-and-deployment-flow" title="Permanent link">¶</a></h1>
+<h2 id="code-merge-workflow">Code Merge Workflow<a class="headerlink" href="#code-merge-workflow" title="Permanent link">¶</a></h2>
+<p>The code merge workflow outlines the process for integrating changes into the main branch. It typically follows a feature branch model where we create branches for new features or bug fixes, submit pull requests, and merge after reviews and tests.</p>
+<pre class="mermaid"><code>graph TD
+    A[Create Feature Branch] --&gt; B[Develop Code]
+    B --&gt; C[Commit Changes]
+    C --&gt; D[Push to Remote]
+    D --&gt; E[Create Pull Request]
+    E --&gt; F[Code Review]
+    F --&gt;|Approved| G[Merge to Main]
+    F --&gt;|Changes Needed| B
+    G --&gt; H[Trigger CI/CD]</code></pre>
+<h2 id="ci-workflow">CI Workflow<a class="headerlink" href="#ci-workflow" title="Permanent link">¶</a></h2>
+<p>The Continuous Integration (CI) workflow automates the building, testing, and validation of code changes. It runs on every pull request and push to ensure code quality before merging.</p>
+<pre class="mermaid"><code>graph TD
+    A[Push/Pull Request] --&gt; B[Checkout Code]
+    B --&gt; C[Install Dependencies]
+    C --&gt; E[Run Unit Tests]
+    E --&gt; F[Run Integration Tests]
+    F --&gt; G[Build Artifacts]
+    G --&gt;|Success| H[Report Success]
+    G --&gt;|Failure| I[Report Failure]</code></pre>
+<h2 id="cd-workflow">CD Workflow<a class="headerlink" href="#cd-workflow" title="Permanent link">¶</a></h2>
+<p>The Continuous Deployment (CD) workflow handles the deployment of validated code to production or staging environments. It typically triggers after a successful merge to the main branch.</p>
+<pre class="mermaid"><code>graph TD
+    A[Merge to Main] --&gt; B[Checkout Code]
+    B --&gt; D[Push to Registry]
+    D --&gt; E[Deploy to Staging]
+    E --&gt; F[Run Smoke Tests]
+    F --&gt;|Success| G[Deploy to Production]
+    F --&gt;|Failure| H[Rollback]
+    G --&gt; I[Monitor Deployment]</code></pre>
+<p>Security Scanning (SAST &amp; DAST)</p>
+<p>To ensure that our application remains safe and follows industry-standard security practices, we use both <strong>SAST (Static Application Security Testing)</strong> and <strong>DAST (Dynamic Application Security Testing)</strong> as part of our CI/CD pipeline.</p>
 <hr/>
-<pre class="mermaid"><code>erDiagram
-    users {
-        string _id  ""  
-        string name  ""  
-        string email  ""  
-        string password  "" 
-        %% skills, resume_url, profile_url will be in profile fields%% 
-        string[] skills  ""  
-        string resume_url  "resume file URL"  
-        string profile_url "profile photo file URL"
-        %% linkedin_url, github_url will be in social_links fields%% 
-        string linkedin_url ""
-        string github_url ""   
-        Date created_at  ""  
-        Date deleted_at  ""  
-        Date updated_at  ""  
-    }
-
-    roles {
-        string _id  ""  
-        string name  "student | recruiter"  
-        Date created_at  ""  
-        Date deleted_at  ""  
-        Date updated_at  ""  
-    }
-
-    user_roles {
-        string _id  ""  
-        objectId user_id  "ref: users"  
-        objectId role_id  "ref: roles"  
-        Date created_at  ""  
-        Date deleted_at  ""  
-        Date updated_at  ""  
-    }
-
-    companies {
-        string _id  ""  
-        string name  ""  
-        string website  ""  
-        %% street, city, state, country will be in address fields%%         
-        string street ""
-        string city ""
-        string state ""
-        string country ""  
-        string logo_url  ""  
-        objectId user_id  "ref: users"  
-        Date created_at  ""  
-        Date deleted_at  ""  
-        Date updated_at  ""  
-    }
-
-    jobs {
-        string _id  ""  
-        string title  ""  
-        string description  ""  
-        string[] requirements  ""  
-        number salary  ""  
-        number experience_level  ""  
-        string location  ""  
-        string job_type  ""  
-        number positions  ""  
-        objectId company_id  "ref: companies"  
-        string created_by  ""  
-        Date created_at  ""  
-        Date deleted_at  ""  
-        Date updated_at  ""  
-    }
-
-    submissions {
-        string _id  ""  
-        objectId job_id  "ref: jobs"  
-        objectId applicant_id  "ref: users"  
-        string status  "pending | Under Review | Interview Scheduled | hired | rejected"  
-        Date created_at  ""  
-        Date deleted_at  ""  
-        Date updated_at  ""  
-    }
-
-    bookmarks {
-        string _id  ""  
-        objectId user_id  "ref: users"  
-        objectId job_id  "ref: jobs"  
-        Date created_at  ""  
-        Date deleted_at  ""  
-        Date updated_at  ""  
-    }
-
-    %% Relationships
-    users ||--o{ user_roles : "has"
-    roles ||--o{ user_roles : "assigned to"
-    users ||--o{ companies : "owns (as recruiter)"
-    companies ||--o{ jobs : "posts"
-    jobs ||--o{ submissions : "receives"
-    users ||--o{ submissions : "applies for"
-    users ||--o{ bookmarks : "saves job"
-    jobs ||--o{ bookmarks : "is saved by"
-
-</code></pre>
+<h2 id="sast-static-application-security-testing">SAST – Static Application Security Testing<a class="headerlink" href="#sast-static-application-security-testing" title="Permanent link">¶</a></h2>
+<p>SAST scans the codebase <strong>before execution</strong>, helping identify insecure coding patterns, vulnerabilities, or bad practices early in the development cycle.</p>
+<h3 id="sast-with-trivy">SAST With Trivy<a class="headerlink" href="#sast-with-trivy" title="Permanent link">¶</a></h3>
+<p>Trivy is easy to use and effective at detecting vulnerabilities in OS packages, application dependencies, and infrastructure-as-code (IaC) files.</p>
+<p>
+<img alt="DFD Level 1 Diagram" height="150" src="../assets/trivy.png" width="700"/>
+</p>
+<h3 id="sast-with-semgrep">SAST With Semgrep<a class="headerlink" href="#sast-with-semgrep" title="Permanent link">¶</a></h3>
+<p>
+<img alt="DFD Level 1 Diagram" height="150" src="../assets/semgrep.png" width="700"/>
+</p>
+<hr/>
+<h2 id="dast-dynamic-application-security-testing">DAST – Dynamic Application Security Testing<a class="headerlink" href="#dast-dynamic-application-security-testing" title="Permanent link">¶</a></h2>
+<p>DAST scans the <strong>running application</strong> for real-world vulnerabilities by interacting with it like an external attacker.</p>
+<h3 id="dast-scans-with-owasp-zap">DAST Scans with OWASP ZAP<a class="headerlink" href="#dast-scans-with-owasp-zap" title="Permanent link">¶</a></h3>
+<p>OWASP ZAP simulates attacks and analyzes the responses to highlight potential risks.</p>
+<p>
+<img alt="DFD Level 1 Diagram" height="150" src="../assets/zap.png" width="700"/>
+</p>
+<hr/>
+<h3 id="dast-scans-with-akido">DAST Scans with Akido<a class="headerlink" href="#dast-scans-with-akido" title="Permanent link">¶</a></h3>
+<p>I also integrate Akido’s scanning suite, which performs additional checks not covered by ZAP.</p>
+<p>
+<img alt="DFD Level 1 Diagram" height="150" src="../assets/akido.png" width="700"/>
+</p>
+<hr/>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
